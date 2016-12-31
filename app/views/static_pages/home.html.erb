@@ -1,4 +1,23 @@
 <% provide(:title, "Home") %>
 
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<span class="centered">
+    <%= image_tag("hy.png", alt: "han yang's profile", class: "profile") %>
+  <div class="subheader">&nbsp; Hi. <br /></div>
+  </span>
+
+<p class="about1">
+I am an aspiring software engineer and psychologist. I love people and computers, so why not?
+<br /><br /><br />
+
+<%= link_to about_path do %>
+<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+  my life story
+</button>
+<% end %>
+&nbsp; &nbsp;
+<%= link_to projects_path do %>
+<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+  portfolio
+</button>
+<% end %>
+</p>

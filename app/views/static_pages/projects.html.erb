@@ -1,4 +1,11 @@
 <% provide(:title, "Projects") %>
 
-<h1>StaticPages#projects</h1>
-<p>Find me in app/views/static_pages/projects.html.erb</p>
+<h1>Projects</h1>
+<p>Sign up for an account to see everything in action.</p>
+Or, login using this trial account.
+
+<%= link_to signup_path do %>
+<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+  sign up
+</button>
+<% end %>

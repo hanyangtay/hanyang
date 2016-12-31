@@ -1,0 +1,77 @@
+<header class="main-header mdl-layout__header mdl-layout__header--waterfall">
+    <div class="mdl-layout__header-row">
+        <!-- Title -->    
+        <title><%= yield(:title) %></title>
+        <%= link_to "hanyang", root_path, class: "mdl-layout-title" %>
+        <%= link_to ".tay", root_path, class: "mdl-layout-title", id: "parttwo" %>
+        
+        <!-- Add spacer, to align navigation to the right in desktop -->
+        <div class="mdl-layout-spacer"></div>
+          
+        <!-- Navigation -->
+        <div class="main-navigation-container">
+            <nav class="main-header mdl-navigation">
+                <%= link_to "About", mystory_path, class: "main-header mdl-navigation__link" %>
+                <%= link_to "Projects", projects_path, class: "main-header mdl-navigation__link" %>
+            </nav>
+        </div>
+        
+        <%= render 'layouts/shim' %>
+        
+</header>
+  
+ <div class="header-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+        <header class="header-drawer-header">
+          <!-- img src="images/user.jpg" class="demo-avatar" -->
+          <i class="mdl-color-text--blue-grey-200 material-icons md-48" role="presentation">account_circle</i>
+          <div class="drawer-avatar-dropdown">
+            <span>hello@example.com</span>
+            <div class="mdl-layout-spacer"></div>
+            <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+              <i class="material-icons" role="presentation">arrow_drop_down</i>
+              <span class="visuallyhidden">Accounts</span>
+            </button>
+            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+                <li class="mdl-menu__item">
+                <%= link_to root_path, class: "mdl-navigation__link" do %>
+                    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">face</i>&nbsp; Account Settings
+                <% end %>
+                </li>
+                <li class="mdl-menu__item logout">
+                <%= link_to root_path, class: "mdl-navigation__link" do %>
+                    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">power_settings_new</i>&nbsp; Log out
+                <% end %>
+                </li>
+            </ul>
+          </div>
+        </header>
+        <nav class="drawer-navigation mdl-navigation mdl-color--blue-grey-800">
+            
+            <%= link_to root_path, class: "mdl-navigation__link" do %>
+              <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_bar</i>Twitter
+            <% end %>
+            <%= link_to root_path, class: "mdl-navigation__link" do %>
+              <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Live Chat
+            <% end %>
+            <%= link_to root_path, class: "mdl-navigation__link" do %>
+              <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">nature_people</i>Stories
+            <% end %>
+            <%= link_to root_path, class: "mdl-navigation__link" do %>
+              <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">photo</i>Instagram
+            <% end %>
+            <%= link_to root_path, class: "mdl-navigation__link" do %>
+              <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">blur_on</i>Games
+            <% end %>
+            <%= link_to root_path, class: "mdl-navigation__link" do %>
+              <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">bubble_chart</i>Particles
+            <% end %>
+            <%= link_to root_path, class: "mdl-navigation__link" do %>
+              <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">queue_music</i>Tones
+            <% end %>
+            <%= link_to root_path, class: "mdl-navigation__link" do %>
+              <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">tune</i>Vibes
+            <% end %>
+
+            <div class="mdl-layout-spacer"></div>
+        </nav>
+      </div>

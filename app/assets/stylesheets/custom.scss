@@ -1,0 +1,238 @@
+@import "material";
+
+a{
+    text-decoration: none;}
+
+
+
+/* header */
+
+.main-header .mdl-menu__container {
+  z-index: 50;
+  margin: 0 !important;
+}
+
+.main-header {
+  overflow: visible;
+  background-color: white;
+  
+  .mdl-layout-title {
+    color: #8bc34a;
+    text-decoration: none;
+    
+  }
+    
+    
+  .mdl-navigation__link {
+    color: #757575;
+    font-weight: 700;
+    font-size: 14px;
+    display: inline-block;
+    height: 62px;
+    line-height: 68px;
+    background-color: transparent !important;
+    border-bottom: 2px solid transparent;
+    
+    &:hover{
+      border-bottom: 2px solid #8bc34a;
+    }
+  }
+  
+  
+
+}
+
+#parttwo {
+      color: #757575 !important;
+    }
+
+
+
+
+/* Header drawer */
+.header-drawer {
+  border: none;
+}
+
+.mdl-layout__drawer-button {
+  color: #757575;
+}
+
+.drawer-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+}
+
+
+.mdl-layout__drawer .avatar {
+  margin-bottom: 16px;
+}
+
+
+.header-drawer-header {
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 16px;
+  height: 151px;
+}
+
+.drawer-avatar-dropdown {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.drawer-navigation {
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+          
+  .mdl-navigation__link {
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+    -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+    color: rgba(255, 255, 255, 0.56) !important;
+    font-weight: 500;
+    
+    &:hover {
+      background-color: #00BCD4 !important;
+      color: #37474F !important;
+    }
+  
+    .material-icons {
+      font-size: 24px;
+      color: rgba(255, 255, 255, 0.56);
+      margin-right: 32px;
+    }
+  }
+}
+
+.mdl-menu__item.logout {
+  border-top:1px solid lightgrey;
+}
+
+
+/* Body text */
+
+    
+.normal-section-text {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 80px 16px 0 16px;
+  
+  p {
+    padding-top: 16px;
+    font-weight: 300;
+  }
+  
+  .centered {
+    text-align: center;
+  }
+}
+
+
+
+.tagline {
+  font-family: Gloria Hallelujah;
+}
+
+
+/* About styles */
+.profile {
+    display: block;
+    margin: auto;}
+    
+.subheader{
+  font-family: 'Roboto', sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  opacity: 1.00;
+  line-height: 84px;
+  color: #8bc34a;
+}
+
+.about1{
+  padding-top: 0px;
+  font-size: 18px;
+  text-align: center;
+}
+
+
+
+
+
+footer {
+  text-align:center;
+  font-size: 12px;
+  font-family: Gloria Hallelujah;
+  line-height: 24px;
+  
+  a{
+    text-decoration: none;
+    opacity: 0.54;
+    transition-timing-function: ease-in-out;
+    transition: opacity 200ms;
+    
+    &:hover{
+        opacity: 1.0;
+      }
+    img{
+      height: 16px;
+      width: 16px;
+      }
+    }
+    
+    
+  }
+
+.resize{
+  height: 20px;
+  width: 20px;
+}
+
+/* Alerts */
+.alert-purple { border-color: #694D9F;background: #694D9F;color: #fff; }
+.alert-info-alt { border-color: #B4E1E4;background: #81c7e1;color: #fff; }
+.alert-danger-alt { border-color: #B63E5A;background: #E26868;color: #fff; }
+.alert-warning-alt { border-color: #F3F3EB;background: #E9CEAC;color: #fff; }
+.alert-success-alt { border-color: #19B99A;background: #20A286;color: #fff; }
+
+
+/* misc */
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 50%;
+  padding: 16px;
+  margin: 16px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+
+}

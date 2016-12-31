@@ -2,13 +2,45 @@
 <html>
 <head>
   <title>hanyang | <%= yield(:title) %></title>
+  
+  <meta name="description" content="Han Yang Tay's portfolio" />
+	<meta name="keywords" content="han, han yang, han yang tay, han tay, developer, software engineer" /> />
+	<meta name="robots" content="index" />
+  
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
 </head>
 <body>
 
-<%= yield %>
+<div class="mdl-layout mdl-js-layout">
+    <%= render'layouts/header' %>
+    
 
+  <main class="mdl-layout__content page-content">
+    <% flash.each do |message_type, message| %>
+    <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+    <% end %>
+    <%= yield %>
+
+
+      
+    
+    
+      <%= render 'layouts/footer' %>
+  </main>
+  
+  <!-- <%= debug(params) if Rails.env.development? %> -->
+
+</div>
+  <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+  
+  <!-- workaround to refresh everything (note header waterfall) -->
+  <script>
+  document.addEventListener('turbolinks:load', function() {
+  componentHandler.upgradeDom();
+});
+  </script>
 </body>
 </html>

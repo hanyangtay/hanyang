@@ -27,7 +27,7 @@ gem 'material_design_lite-sass'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use puma as the app server
-# gem 'puma'
+gem 'puma'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

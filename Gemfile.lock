@@ -89,6 +89,7 @@ GEM
     nokogiri (1.7.0)
       mini_portile2 (~> 2.1.0)
     pg (0.19.0)
+    puma (3.6.2)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -172,6 +173,7 @@ DEPENDENCIES
   material_design_lite-sass
   minitest-reporters
   pg
+  puma
   rails
   rails-controller-testing
   sass-rails

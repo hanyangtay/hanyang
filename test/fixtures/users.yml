@@ -1,0 +1,4 @@
+Han:
+  name: Han Tay
+  email: htay@wesleyan.edu
+  password_digest: <%= User.digest('abcdef1!') %>

@@ -11,12 +11,15 @@ class User < ApplicationRecord
         uniqueness: { case_sensitive: false}
         
     STRONG_PASSWORD_REGEX = /\A(?=.*[a-z])(?=.*[0-9])(?=.*[\-\_\/:;,\?'\"\.!@#\$%\^&\*\(\)\+\=])(?=^.{8,})/
+    
+    has_secure_password
         
     validates :password, presence: true, length: { minimum: 8 },
         format: { with: STRONG_PASSWORD_REGEX}
     
-        
-    has_secure_password
-
-    
+    def User.digest(string)
+        cost = ActiveModel::SecurePassword.min_cost ? 
+        BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
+        BCrypt::Password.create(string, cost: cost)
+    end
 end

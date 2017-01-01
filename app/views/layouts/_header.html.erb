@@ -13,6 +13,60 @@
                 <%= link_to "Home", root_path, class: "main-header mdl-navigation__link" %>
                 <%= link_to "Projects", projects_path, class: "main-header mdl-navigation__link" %>
                 <%= link_to "About", about_path, class: "main-header mdl-navigation__link" %>
+                
+                <button id="others" class="main-header mdl-navigation__link 
+                        mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                  <i class="material-icons" id="iconHead" role="presentation">more_vert</i>
+                  <span class="visuallyhidden">Accounts</span>
+                </button>
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu 
+                            mdl-js-ripple-effect" for="others">
+                    
+                    <% if logged_in? %>
+                        <li class="mdl-menu__item">
+                        <%= link_to '#', class: "mdl-navigation__link" do %>
+                            <i class="material-icons" role="presentation">near_me</i> Explore
+                        <% end %>
+                        </li>
+                        <li class="mdl-menu__item">
+                        <%= link_to current_user, class: "mdl-navigation__link" do %>
+                            <i class="material-icons" 
+                            role="presentation">account_circle</i> Profile
+                        <% end %>
+                        </li>
+                        <li class="mdl-menu__item">
+                        <%= link_to '#', class: "mdl-navigation__link" do %>
+                            <i class="material-icons" 
+                            role="presentation">settings</i> Settings
+                        <% end %>
+                        </li>
+                        <li class="mdl-menu__item">
+                        <%= link_to logout_path, method: :delete, class: "mdl-navigation__link" do %>
+                            <i class="material-icons" 
+                            role="presentation">power_settings_new</i> Log out
+                        <% end %>
+                        </li>
+                    <% else %>
+                        <li class="mdl-menu__item">
+                        <%= link_to login_path, class: "mdl-navigation__link" do %>
+                            <i class="material-icons" 
+                            role="presentation">account_circle</i> Log in
+                        <% end %>
+                        </li>
+                        <li class="mdl-menu__item">
+                        <%= link_to signup_path, class: "mdl-navigation__link" do %>
+                            <i class="material-icons" 
+                            role="presentation">person_add</i> Sign Up
+                        <% end %>
+                        </li>
+                        <li class="mdl-menu__item">
+                        <%= link_to '#', class: "mdl-navigation__link" do %>
+                            <i class="material-icons" 
+                            role="presentation">near_me</i> Explore
+                        <% end %>
+                        </li>
+                    <% end %>
+                </ul>
             </nav>
         </div>
     </div>
@@ -30,6 +84,31 @@
     <% end %>
     <%= link_to about_path, class: "mdl-navigation__link" do %>
               <i class="material-icons" role="presentation">face</i>About
+    <% end %>
+    <hr>
+    <% if logged_in? %>
+        <%= link_to '#', class: "mdl-navigation__link" do %>
+            <i class="material-icons" role="presentation">near_me</i> Explore
+        <% end %>
+         <%= link_to current_user, class: "mdl-navigation__link" do %>
+            <i class="material-icons" role="presentation">account_circle</i> Profile
+        <% end %>
+        <%= link_to '#', class: "mdl-navigation__link" do %>
+            <i class="material-icons" role="presentation">settings</i> Settings
+        <% end %> 
+        <%= link_to logout_path, method: :delete, class: "mdl-navigation__link" do %>
+            <i class="material-icons" role="presentation">power_settings_new</i> Log out
+        <% end %>
+   <% else %>
+        <%= link_to login_path, class: "mdl-navigation__link" do %>
+            <i class="material-icons" role="presentation">account_circle</i> Log in
+        <% end %>
+        <%= link_to signup_path, class: "mdl-navigation__link" do %>
+            <i class="material-icons" role="presentation">person_add</i> Sign Up
+        <% end %>
+        <%= link_to '#', class: "mdl-navigation__link" do %>
+            <i class="material-icons" role="presentation">near_me</i> Explore
+        <% end %>
     <% end %>
     
     </nav>

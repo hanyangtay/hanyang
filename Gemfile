@@ -24,7 +24,7 @@ gem 'sdoc', group: :doc
 gem 'material_design_lite-sass'
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
 
 # Use puma as the app server
 gem 'puma'

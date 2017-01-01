@@ -7,14 +7,17 @@ a{
 
 /* header */
 
-.main-header .mdl-menu__container {
-  z-index: 50;
-  margin: 0 !important;
+.mdl-layout__header-row {
+  padding: 0 10em 0 10em;
 }
-
 .main-header {
   overflow: visible;
   background-color: white;
+  margin: auto;
+  
+  .mdl-menu__container {
+    z-index: 50;
+  }
   
   .mdl-layout-title {
     font-size: 24px;
@@ -33,10 +36,9 @@ a{
     }
   }
     
-    
   .mdl-navigation__link {
-    color: #757575;
-    font-weight: 700;
+    color: #616161;
+    font-weight: 400;
     font-size: 14px;
     display: inline-block;
     height: 62px;
@@ -90,7 +92,7 @@ a{
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
-  padding: 140px 16px 0 16px;
+  padding: 80px 16px 0 16px;
   
   p {
     padding-top: 16px;
@@ -131,7 +133,7 @@ a{
 
 
 
-
+/* Footer */
 
 footer {
   text-align:center;
@@ -162,13 +164,28 @@ footer {
   width: 20px;
 }
 
-/* Alerts */
+/* Flash Alerts */
+
+#flash-alert-success {
+  background-color: #20A286;
+}
+
 .alert-purple { border-color: #694D9F;background: #694D9F;color: #fff; }
 .alert-info-alt { border-color: #B4E1E4;background: #81c7e1;color: #fff; }
 .alert-danger-alt { border-color: #B63E5A;background: #E26868;color: #fff; }
 .alert-warning-alt { border-color: #F3F3EB;background: #E9CEAC;color: #fff; }
 .alert-success-alt { border-color: #19B99A;background: #20A286;color: #fff; }
 
+/* Forms */
+
+.mdl-textfield__error {
+  color: #e57373;
+}
+
+/* Buttons */
+.mdl-button {
+  color: #212121;
+}
 
 /* misc */
 .debug_dump {
@@ -184,3 +201,4 @@ footer {
   border-color: #bce8f1;
 
 }
+

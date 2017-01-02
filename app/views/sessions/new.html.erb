@@ -19,7 +19,9 @@
       <br />
       <%= f.label :remember_me, class: "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" do %>
         <%= f.check_box :remember_me, class: "mdl-checkbox__input" %>
-        <span class = "smallText">Remember me on this computer.</span>
+        <span class = "smallText">Remember me. 
+        <%= link_to "Forgot password?", new_password_reset_path, class: "mdl-navigation__link password" %> 
+        </span>
       <% end %>
       <%= f.submit "Log in", class: "mdl-button mdl-js-button 
                                   mdl-button--raised mdl-js-ripple-effect" %>
@@ -31,4 +33,4 @@
     <p>New user? <%= link_to "Sign up now!", signup_path %>
     <br />
     Or check out "Projects" for guest accounts.</p>
-    </div>
+</div>

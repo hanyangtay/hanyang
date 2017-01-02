@@ -1,0 +1,51 @@
+<% provide(:title, 'Reset password') %>
+
+<script>
+function checkPasswordMatch() {
+    var password = $("#password").val();
+    var confirmPassword = $("#confirmPassword").val();
+
+    if (password != confirmPassword)
+        $("#confirmPassword").parent().addClass('is-invalid');
+
+}
+
+$(document).ready(function () {
+   $("#password, #confirmPassword").focusout(checkPasswordMatch);
+});
+</script>
+
+
+<div class="subheader">Reset password</div>
+
+<div class="mdl-card__supporting-text">
+    
+    
+  <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
+      
+      <%= render 'shared/error_messages', object: @user %>
+      
+      <%= hidden_field_tag :email, @user.email %>
+      
+      <div class="mdl-textfield mdl-js-textfield">
+      <%= f.label :password, class: "mdl-textfield__label" %>
+      <%= f.password_field :password, class: "mdl-textfield__input", 
+        pattern: "(?=.*[a-z])(?=.*[0-9])(?=.*[\-\_\/:;,\?'\"\.!@#\$%\^&\*\(\)\+\=])(?=^.{8,}).*$", 
+                                        id: "password" %>
+      <span class="mdl-textfield__error">Password must contain at least 8 characters, including one numeral and one special character.</span>
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield">
+      <%= f.label :password_confirmation, "Confirmation", 
+      class: "mdl-textfield__label" %>
+      <%= f.password_field :password_confirmation, 
+      class: "mdl-textfield__input", id: "confirmPassword" %>
+      <span class="mdl-textfield__error">Passwords do not match.</span>
+      </div>
+      
+      <br />
+      <br />
+      <%= f.submit "Update", class: "mdl-button mdl-js-button 
+                                  mdl-button--raised mdl-js-ripple-effect" %>
+    <% end %>
+</div>

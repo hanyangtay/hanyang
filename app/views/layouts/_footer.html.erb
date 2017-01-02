@@ -2,18 +2,20 @@
 <br />
 <br />
 <br />
-<%= link_to "https://github.com/hanyangtay/hanyang", target:"_blank" do %>
+<%= link_to "https://github.com/hanyangtay/hanyang", target:"_blank", 
+      rel: "noopener" do %>
    <%= image_tag "github.png", id: "footer_1" %>
 <% end %> 
 
 &nbsp;
 
-<%= mail_to "htay@wesleyan.edu" do %>
-   <%= image_tag "email.png", id: "footer_2" %>
+<%= mail_to "htay@wesleyan.edu", id: "footer_2" do %>
+   <i class="material-icons", role="presentation">email</i>
 <% end %> 
 &nbsp;
 
-<%= link_to "https://www.linkedin.com/in/hanyang-tay", target: "_blank" do %>
+<%= link_to "https://www.linkedin.com/in/hanyang-tay", target: "_blank",
+      rel: "noopener" do %>
    <%= image_tag "linkedin.png", id: "footer_3" %>
 <% end %> 
 <br />

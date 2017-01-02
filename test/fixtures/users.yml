@@ -2,3 +2,16 @@ Han:
   name: Han Tay
   email: htay@wesleyan.edu
   password_digest: <%= User.digest('abcdef1!') %>
+  admin: true
+  
+Fritz:
+  name: Fritz Tay
+  email: ftay@wesleyan.edu
+  password_digest: <%= User.digest('abcdef1!') %>
+
+<% 30.times do |n| %>
+user_<%= n %>:
+  name: <%= "User #{n}" %>
+  email: <%= "user-#{n}@text.com" %>
+  password_digest: <%= User.digest('abcdef1!') %>
+<% end %>

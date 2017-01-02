@@ -24,6 +24,10 @@
                     
                     <% if logged_in? %>
                         <li class="mdl-menu__item">
+                            <%= link_to users_path, class: "mdl-navigation__link" do %>
+                            <i class="material-icons" role="presentation">people</i> Find friends
+                        <% end %>
+                        <li class="mdl-menu__item">
                         <%= link_to '#', class: "mdl-navigation__link" do %>
                             <i class="material-icons" role="presentation">near_me</i> Explore
                         <% end %>
@@ -35,7 +39,7 @@
                         <% end %>
                         </li>
                         <li class="mdl-menu__item">
-                        <%= link_to '#', class: "mdl-navigation__link" do %>
+                        <%= link_to edit_user_path(current_user), class: "mdl-navigation__link" do %>
                             <i class="material-icons" 
                             role="presentation">settings</i> Settings
                         <% end %>
@@ -93,7 +97,7 @@
          <%= link_to current_user, class: "mdl-navigation__link" do %>
             <i class="material-icons" role="presentation">account_circle</i> Profile
         <% end %>
-        <%= link_to '#', class: "mdl-navigation__link" do %>
+        <%= link_to edit_user_path(current_user), class: "mdl-navigation__link" do %>
             <i class="material-icons" role="presentation">settings</i> Settings
         <% end %> 
         <%= link_to logout_path, method: :delete, class: "mdl-navigation__link" do %>

@@ -3,15 +3,21 @@ Han:
   email: htay@wesleyan.edu
   password_digest: <%= User.digest('abcdef1!') %>
   admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
   
 Fritz:
   name: Fritz Tay
   email: ftay@wesleyan.edu
   password_digest: <%= User.digest('abcdef1!') %>
-
+  activated: true
+  activated_at: <%= Time.zone.now %>
+  
 <% 30.times do |n| %>
 user_<%= n %>:
   name: <%= "User #{n}" %>
   email: <%= "user-#{n}@text.com" %>
   password_digest: <%= User.digest('abcdef1!') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 <% end %>

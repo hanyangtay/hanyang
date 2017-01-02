@@ -10,52 +10,80 @@ User.create!(name:  "Han Yang Tay",
              email: "htay@wesleyan.edu",
              password:              "abcdef1!",
              password_confirmation: "abcdef1!",
-             admin: true)
+             admin: true,
+             activated: true,
+             activated_at: Time.zone.now)
              
-User.create!(name:  "Guest",
+             
+User.create!(name:  "Friend",
              email: "guest@han.io",
              password:              "abcdef1!",
-             password_confirmation: "abcdef1!")
+             password_confirmation: "abcdef1!",
+             activated: true,
+             activated_at: Time.zone.now)
              
-User.create!(name:  "Guest",
+User.create!(name:  "Pal",
              email: "guest2@han.io",
              password:              "abcdef1!",
-             password_confirmation: "abcdef1!")
+             password_confirmation: "abcdef1!",
+             activated: true,
+             activated_at: Time.zone.now)
              
-User.create!(name:  "Guest",
+User.create!(name:  "Abang",
              email: "guest3@han.io",
              password:              "abcdef1!",
-             password_confirmation: "abcdef1!")
+             password_confirmation: "abcdef1!",
+             activated: true,
+             activated_at: Time.zone.now)
              
 User.create!(name:  "Musician",
              email: "han1@han.io",
              password:              "abcdef1!",
-             password_confirmation: "abcdef1!")
-
+             password_confirmation: "abcdef1!",
+             activated: true,
+             activated_at: Time.zone.now)
+             
 User.create!(name:  "Artist",
              email: "han2@han.io",
              password:              "abcdef1!",
-             password_confirmation: "abcdef1!")  
-
+             password_confirmation: "abcdef1!",
+             activated: true,
+             activated_at: Time.zone.now)
+             
 User.create!(name:  "Observer",
              email: "han3@han.io",
              password:              "abcdef1!",
-             password_confirmation: "abcdef1!") 
-
+             password_confirmation: "abcdef1!",
+             activated: true,
+             activated_at: Time.zone.now)
+             
 User.create!(name:  "Chef",
              email: "han4@han.io",
              password:              "abcdef1!",
-             password_confirmation: "abcdef1!") 
+             password_confirmation: "abcdef1!",
+             activated: true,
+             activated_at: Time.zone.now) 
 
 User.create!(name:  "Human",
              email: "han5@han.io",
              password:              "abcdef1!",
-             password_confirmation: "abcdef1!") 
+             password_confirmation: "abcdef1!",
+             activated: true,
+             activated_at: Time.zone.now)
 
 User.create!(name:  "Explorer",
              email: "han6@han.io",
              password:              "abcdef1!",
-             password_confirmation: "abcdef1!") 
+             password_confirmation: "abcdef1!",
+             activated: true,
+             activated_at: Time.zone.now)
+             
+User.create!(name:  "Dreamer",
+             email: "han7@han.io",
+             password:              "abcdef1!",
+             password_confirmation: "abcdef1!",
+             activated: true,
+             activated_at: Time.zone.now)
              
              
              
@@ -67,6 +95,8 @@ if Rails.env.development?
       User.create!(name:  name,
                    email: email,
                    password:              password,
-                   password_confirmation: password)
+                   password_confirmation: password,
+                     activated: true,
+                     activated_at: Time.zone.now)
     end
 end

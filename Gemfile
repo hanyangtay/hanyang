@@ -31,6 +31,12 @@ gem 'puma'
 
 gem 'kaminari'
 
+gem 'carrierwave'
+
+gem 'mini_magick'
+
+gem 'fog'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

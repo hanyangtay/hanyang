@@ -24,6 +24,10 @@
                     
                     <% if logged_in? %>
                         <li class="mdl-menu__item">
+                            <%= link_to status_posts_path, class: "mdl-navigation__link" do %>
+                            <i class="material-icons" role="presentation">public</i> App Home
+                        <% end %>
+                        <li class="mdl-menu__item">
                             <%= link_to users_path, class: "mdl-navigation__link" do %>
                             <i class="material-icons" role="presentation">people</i> Find friends
                         <% end %>

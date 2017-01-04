@@ -1,0 +1,50 @@
+<% if @status_posts.any? %>
+      
+    
+    <ul class="status_posts">
+      <% @status_posts.each do |status_post| %>
+        <li id = "status_post-<%= status_post.id %>">
+          <%= link_to status_post.user.name, status_post.user, class: "mdl-navigation__link" %>
+          <%= status_post.content %> <br />
+          <%= image_tag status_post.picture.url if status_post.picture? %>
+          Posted <%= time_ago_in_words(status_post.created_at) %> ago.
+        <% if current_user?(status_post.user) %>
+              
+        <button id="show-dialog-<%= status_post.id %>" type="button" class="mdl-button">delete</button>
+        <dialog class="mdl-dialog">
+          <h4 class="mdl-dialog__title">Delete</h4>
+          <div class="mdl-dialog__content">
+            <p>
+              Delete post?
+            </p>
+          </div>
+          <div class="mdl-dialog__actions">
+            <%= button_to 'Delete', status_post, method: :delete, class: 'mdl-button' %>
+            <button type="button" class="mdl-button close-<%= status_post.id %>">Cancel</button>
+          </div>
+        </dialog>
+        
+  <script>
+    var dialog = document.querySelector('dialog');
+    dialogPolyfill.registerDialog(dialog);
+    var showDialogButton = document.querySelector('#show-dialog-<%= status_post.id %>');
+    if (! dialog.showModal) {
+      dialogPolyfill.registerDialog(dialog);
+    }
+    showDialogButton.addEventListener('click', function() {
+      dialog.showModal();
+    });
+    dialog.querySelector('.close-<%= status_post.id %>').addEventListener('click', function() {
+      dialog.close();
+    });
+  </script>
+        
+        
+        <% end %>
+        
+        </li>
+      <% end %>
+    </ul>
+    
+    <%= paginate @status_posts %>
+<% end %>

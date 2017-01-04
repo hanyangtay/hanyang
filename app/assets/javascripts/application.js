@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require_tree .
 //= require material
+//= require dialog-polyfill
 
 document.addEventListener('turbolinks:load', function() {
   componentHandler.upgradeDom();

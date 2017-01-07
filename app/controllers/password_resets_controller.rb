@@ -25,6 +25,7 @@ class PasswordResetsController < ApplicationController
   def update
     if params[:user][:password].empty?                 
       @user.errors.add(:password, "can't be empty.")
+      error_message_now(@user)
       render 'edit'
     elsif @user.update_attributes(user_params)
       log_in @user

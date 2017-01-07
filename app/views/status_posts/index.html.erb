@@ -1,5 +1,34 @@
-<% provide(:title, "Feed") %>
+<% provide(:title, "App Home") %>
+<div class = "main-style-2">
+<h1>App Home</h1>
 
-<div class="subheader"><%= @user.name %></div>
-<%= render 'status_posts/form' %>
-<%= render 'status_posts/post' %>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--3-col mdl-cell--hide-tablet mdl-cell--hide-phone sidebar">
+    
+    <%= link_to @user do %>
+      <%= image_tag @user.avatar.url, class: "profile_pic"%>
+    <% end %>
+    
+    <br />
+    <br />
+    
+    <strong> <%= @user.status_posts.count %> </strong> posts <br />
+    
+    <strong> <%= @user.following.count %> </strong> following, 
+    <strong> <%= @user.followers.count %> </strong> followers
+    
+
+  </div>
+  
+  
+  
+  <div class="mdl-cell mdl-cell--9-col main">
+    <%= render 'status_posts/form' %>
+    <%= render 'status_posts/post' %>
+  </div>
+
+
+
+
+</div>
+</div>

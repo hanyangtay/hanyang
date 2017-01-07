@@ -1,29 +1,15 @@
 <% provide(:title, 'Reset password') %>
 
-<script>
-function checkPasswordMatch() {
-    var password = $("#password").val();
-    var confirmPassword = $("#confirmPassword").val();
+<%= render 'shared/password_match' %>
 
-    if (password != confirmPassword)
-        $("#confirmPassword").parent().addClass('is-invalid');
-
-}
-
-$(document).ready(function () {
-   $("#password, #confirmPassword").focusout(checkPasswordMatch);
-});
-</script>
-
-
-<div class="subheader">Reset password</div>
+<div class="main-style-1">
+    
+<h1>Reset password</h1>
 
 <div class="mdl-card__supporting-text">
     
     
   <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
-      
-      <%= render 'shared/error_messages', object: f.object %>
       
       <%= hidden_field_tag :email, @user.email %>
       
@@ -48,4 +34,6 @@ $(document).ready(function () {
       <%= f.submit "Update", class: "mdl-button mdl-js-button 
                                   mdl-button--raised mdl-js-ripple-effect" %>
     <% end %>
+</div>
+
 </div>

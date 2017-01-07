@@ -1,25 +1,11 @@
-<script>
-function checkPasswordMatch() {
-    var password = $("#password").val();
-    var confirmPassword = $("#confirmPassword").val();
-
-    if (password != confirmPassword)
-        $("#confirmPassword").parent().addClass('is-invalid');
-
-}
-
-$(document).ready(function () {
-   $("#password, #confirmPassword").focusout(checkPasswordMatch);
-});
-</script>
+<%= render 'shared/password_match' %>
 
 <div class="mdl-card__supporting-text">
   <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
       <div class="mdl-textfield mdl-js-textfield">
       <%= f.label :name, "Name", class: "mdl-textfield__label" %>
-      <%= f.text_field :name, class: "mdl-textfield__input", pattern: "[a-zA-Z0-9\s]{1,}" %>
-      <span class="mdl-textfield__error">Only alphanumeric characters are allowed.</span>
+      <%= f.text_field :name, class: "mdl-textfield__input", pattern: ".{1,50}" %>
+      <span class="mdl-textfield__error">Invalid name.</span>
       </div>
       
       <div class="mdl-textfield mdl-js-textfield">

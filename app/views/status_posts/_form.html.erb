@@ -1,7 +1,7 @@
 <script type ="text/javascript">
     function wordCount()
     {
-        var post = document.getElementById("status_post");
+        var post = document.getElementById("status_post_count");
         var max = post.attributes.maxLength.value;
         var total = post.value.length;
 
@@ -9,62 +9,37 @@
     }
 </script>
 
-<div class="mdl-card__supporting-text">
-    <%= form_for(@status_post, html: { multipart: true }) do |f| %>
-        <%= render 'shared/error_messages', object: f.object %>
+<%= render "shared/image_upload" %>
 
-        <div class="mdl-textfield mdl-js-textfield">
-            <%= f.label :content, "What's on your mind?", class: "mdl-textfield__label" %>
-            <%= f.text_area :content, onKeyUp: "wordCount()", maxLength: "140", class: "mdl-textfield__input is-invalid", id: "status_post", rows: "3" %>
-            <span class="mdl-textfield__error">Character count exceeded.</span>
-        </div>
-        <p style = "text-align:right" id="wordCount"> 0/140</p>
-        <br />
-        <br />
+<div class="new_status_post">
+<%= form_for(@status_post, html: { multipart: true }) do |f| %>
 
-      <%= f.submit "Post", class: "mdl-button mdl-js-button 
-                                  mdl-button--raised mdl-js-ripple-effect", id: "post" %>
-
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--file">
-    <%= f.text_field :picture, class: "mdl-textfield__input", id: "uploadFile", readonly: true, placeholder: "Add a picture." %>
-    <div class="mdl-button mdl-button--primary mdl-button--icon mdl-button--file">
-      <i class="material-icons">insert_photo</i>
-      <br />
-      <%= f.file_field :picture, accept: "image/*", id: "uploadBtn" %>
+    <div class="mdl-textfield mdl-js-textfield textarea">
+        <%= f.label :content, "What's on your mind?", class: "mdl-textfield__label", id: "status_post" %>
+        <%= f.text_area :content, onKeyUp: "wordCount()", maxLength: "140", class: "mdl-textfield__input is-invalid", id: "status_post_count", rows: "3" %>
+        <span class="mdl-textfield__error">Character count exceeded.</span>
     </div>
-  </div>
+
+
+    <div id="afterPost">
+        <p id="wordCount"> 0/140</p>
+        <%= label_tag "uploadBtn", nil do %>
+            <div class="mdl-button mdl-button--primary mdl-button--icon mdl-button--file">
+                <i class="material-icons", style: "color: #3f51b5;">add_a_photo</i>
+            </div>
+        <% end %>
+        <%= f.submit "Post", class: "mdl-button mdl-js-button 
+                                      mdl-button--raised mdl-js-ripple-effect", id: "post", style: "float:right;" %>
+    </div>
+    
+    <%= f.file_field :picture, id: "uploadBtn", class: "hideField", accept: "image/*" %>
+    
+    <br />
+    
+    <%= image_tag "", id: "preview", style: "max-width: 400px; height: auto; object-fit: cover;" %>
+    
+    <%= render "shared/image_upload" %>
         
+<% end %>
 
-
-    
-    
-    
-    
-    
-    <% end %>
 </div>
-
-<script type="text/javascript">
-document.getElementById("uploadBtn").onchange = function () {
-    document.getElementById("uploadFile").value = this.files[0].name;
-};
-</script>
-
-<script type = "text/javascript">
-
-
-$('#uploadBtn').bind('change', function() {
-
-  if (this.files[0].size > 8388608) {
-      
-      $('#uploadFile').parent().addClass('is-invalid');
-      $('#uploadFile').val('Image size should be less than 8MB.');
-      $('#post').prop('disabled', true);
-  } else {
-      $('#post').prop('disabled', false);
-      $('#uploadFile').parent().removeClass('is-invalid');
-  }
-
-});
-</script>
-

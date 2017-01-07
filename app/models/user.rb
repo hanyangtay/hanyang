@@ -1,6 +1,16 @@
 class User < ApplicationRecord
     
     has_many :status_posts, dependent: :destroy
+    has_many :active_relationships, class_name: "Relationship",
+                                    foreign_key: "follower_id",
+                                    dependent: :destroy
+    has_many :passive_relationships, class_name: "Relationship",
+                                    foreign_key: "followed_id",
+                                    dependent: :destroy
+    has_many :following, through: :active_relationships, source: :followed
+    has_many :followers, through: :passive_relationships
+
+    
     attr_accessor :remember_token, :activation_token, :reset_token
     mount_uploader :avatar, AvatarUploader
 
@@ -9,10 +19,7 @@ class User < ApplicationRecord
     before_save :downcase_email
     before_create :create_activation_digest
     
-    NAME_REGEX = /\A[a-zA-Z0-9\s]{2,}/
-    
-    validates :name, presence: true, length: { maximum: 50},
-            format: { with: NAME_REGEX }
+    validates :name, presence: true, length: { maximum: 50}
     
     
     validates :email, presence: true, length: { maximum: 255 }, 
@@ -73,8 +80,22 @@ class User < ApplicationRecord
     end
     
     def feed
-         # StatusPost.where("user_id = ?", id)
-         status_posts
+        following_ids = "SELECT followed_id FROM relationships
+                            WHERE follower_id = :user_id"
+         StatusPost.where("user_id IN (#{following_ids}) OR user_id = :user_id", 
+                            user_id: id)
+    end
+    
+    def follow(other_user)
+        following << other_user unless self.following?(other_user)
+    end
+    
+    def unfollow(other_user)
+        following.delete(other_user)
+    end
+        
+    def following?(other_user)
+        following.include?(other_user)
     end
     
     private

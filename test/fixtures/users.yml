@@ -13,6 +13,28 @@ Fritz:
   activated: true
   activated_at: <%= Time.zone.now %>
   
+Hy:
+  name: Han Yang Tay
+  email: hytay@wesleyan.edu
+  password_digest: <%= User.digest('abcdef1!') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+Han2:
+  name: Han Tay
+  email: htay2@wesleyan.edu
+  password_digest: <%= User.digest('abcdef1!') %>
+  admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
+  
+Fritz2:
+  name: Fritz Tay
+  email: ftay2@wesleyan.edu
+  password_digest: <%= User.digest('abcdef1!') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+  
 <% 30.times do |n| %>
 user_<%= n %>:
   name: <%= "User #{n}" %>

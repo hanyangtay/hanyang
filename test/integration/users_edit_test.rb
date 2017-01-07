@@ -15,7 +15,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
                                               password:              "foo",
                                               password_confirmation: "bar" } }
     assert_template 'users/edit'
-    assert_select "div.alert"
+    assert_not flash.empty?
   end
   
   test "successfulEdit" do

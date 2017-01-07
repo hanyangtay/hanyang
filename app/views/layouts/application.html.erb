@@ -13,48 +13,25 @@
   <%= csrf_meta_tags %>
   
   <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
+
   <%= favicon_link_tag %>
   <%= render 'layouts/shim' %>
 </head>
 <body>
 
 <div class="mdl-layout mdl-js-layout">
-    <%= render'layouts/header' %>
     
-
+  <%= render'layouts/header' %>
+    
   <main class="mdl-layout__content page-content">
     
-    <% flash.each do |message_type, message| %>
-    <div id="flash-alert-<%= message_type %>" class="mdl-js-snackbar mdl-snackbar">
-      <div class="mdl-snackbar__text"></div>
-      <button class="mdl-snackbar__action" type="button"></button>
-    </div>
-  
-    <script>
-      r(function(){
-          var snackbarContainer = document.querySelector('#flash-alert-<%= message_type %>');
-          var data = { message: "<%= message %>"};
-          snackbarContainer.MaterialSnackbar.showSnackbar(data);
-      });
-      function r(f){ /in/.test(document.readyState)?setTimeout('r('+f+')',9):f()}
-    </script>
-    <% end %>
+    <%= render 'shared/flash_message' %>
     
-
-    
-    
-    <div class="normal-section-text">
     <%= yield %>
-    </div>
-
-
-      
     
-    
-      <%= render 'layouts/footer' %>
+    <%= render 'layouts/footer' %>
   </main>
-  
-  <!-- <%= debug(params) if Rails.env.development? %> -->
 
 </div>
 

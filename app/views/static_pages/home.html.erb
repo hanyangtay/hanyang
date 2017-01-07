@@ -1,23 +1,32 @@
 <% provide(:title, "Home") %>
-
-<span class="centered">
-    <%= image_tag("hy.png", alt: "han yang's profile", class: "profile") %>
-  <div class="subheader">&nbsp; Hi. <br /></div>
+<div class="main-style-1">
+  
+<span class="center-text">
+    <%= image_tag("personal/hy.png", alt: "han yang's profile", id: "profile", class: "center-image") %>
+  <h1> Hi. </h1>
   </span>
 
-<p class="about1">
-I am an aspiring software engineer and psychologist. I love people and computers, so why not?
+<p id="tagline">
+My name is everywhere on this page. <br />
+Welcome to my coding playground.
+
+
 <br /><br /><br />
 
 <%= link_to about_path do %>
-<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-  my life story
-</button>
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+    About me
+  </button>
 <% end %>
+
 &nbsp; &nbsp;
+
 <%= link_to projects_path do %>
-<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-  portfolio
-</button>
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+    portfolio
+  </button>
 <% end %>
+
 </p>
+
+</div>

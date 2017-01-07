@@ -16,8 +16,7 @@
                 
                 <button id="others" class="main-header mdl-navigation__link 
                         mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                  <i class="material-icons" id="iconHead" role="presentation">more_vert</i>
-                  <span class="visuallyhidden">Accounts</span>
+                  <i class="material-icons" role="presentation">more_vert</i>
                 </button>
                 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu 
                             mdl-js-ripple-effect" for="others">
@@ -32,7 +31,7 @@
                             <i class="material-icons" role="presentation">people</i> Find friends
                         <% end %>
                         <li class="mdl-menu__item">
-                        <%= link_to '#', class: "mdl-navigation__link" do %>
+                        <%= link_to explore_path, class: "mdl-navigation__link" do %>
                             <i class="material-icons" role="presentation">near_me</i> Explore
                         <% end %>
                         </li>
@@ -68,7 +67,7 @@
                         <% end %>
                         </li>
                         <li class="mdl-menu__item">
-                        <%= link_to '#', class: "mdl-navigation__link" do %>
+                        <%= link_to explore_path, class: "mdl-navigation__link" do %>
                             <i class="material-icons" 
                             role="presentation">near_me</i> Explore
                         <% end %>
@@ -81,43 +80,5 @@
     
         
 </header>
-<div class="header-drawer mdl-layout__drawer mdl-layout--small-screen-only">
-    <span class="mdl-layout-title">hanyang.tay</span>
-    <nav class="mdl-navigation">
-    <%= link_to root_path, class: "mdl-navigation__link" do %>
-              <i class="material-icons" role="presentation">home</i>Home
-    <% end %>
-    <%= link_to projects_path, class: "mdl-navigation__link" do %>
-              <i class="material-icons" role="presentation">explore</i>Projects
-    <% end %>
-    <%= link_to about_path, class: "mdl-navigation__link" do %>
-              <i class="material-icons" role="presentation">face</i>About
-    <% end %>
-    <hr>
-    <% if logged_in? %>
-        <%= link_to '#', class: "mdl-navigation__link" do %>
-            <i class="material-icons" role="presentation">near_me</i> Explore
-        <% end %>
-         <%= link_to current_user, class: "mdl-navigation__link" do %>
-            <i class="material-icons" role="presentation">account_circle</i> Profile
-        <% end %>
-        <%= link_to edit_user_path(current_user), class: "mdl-navigation__link" do %>
-            <i class="material-icons" role="presentation">settings</i> Settings
-        <% end %> 
-        <%= link_to logout_path, method: :delete, class: "mdl-navigation__link" do %>
-            <i class="material-icons" role="presentation">power_settings_new</i> Log out
-        <% end %>
-   <% else %>
-        <%= link_to login_path, class: "mdl-navigation__link" do %>
-            <i class="material-icons" role="presentation">account_circle</i> Log in
-        <% end %>
-        <%= link_to signup_path, class: "mdl-navigation__link" do %>
-            <i class="material-icons" role="presentation">person_add</i> Sign Up
-        <% end %>
-        <%= link_to '#', class: "mdl-navigation__link" do %>
-            <i class="material-icons" role="presentation">near_me</i> Explore
-        <% end %>
-    <% end %>
-    
-    </nav>
-  </div>
+
+<%= render "layouts/drawer" %>

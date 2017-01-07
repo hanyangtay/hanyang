@@ -1,7 +1,38 @@
 <% provide(:title, 'Change account settings') %>
 <% provide(:button_text, 'Update') %>
+<div class="main-style-1">
+    
+    <h1>Change profile picture</h1>  
 
+            
+        
+    <%= image_tag @user.avatar.url, id: "preview", class: "profile_pic_preview" %>
+    <br />
+    <%= form_for(@user, html: { multipart: true }) do |f| %>
+            <%= label_tag "uploadBtn", nil do %>
+            <div id="changeprofileWrapper">
+                <div class="mdl-button mdl-button--primary mdl-button--icon mdl-button--file">
+                    <i class="material-icons", style: "color: #3f51b5;">add_a_photo</i>
+                </div>
+                &nbsp;
+            <span class="smallText">Add a photo</span>
+            <% end %>
+            </div>
+            <br />
+            <%= f.submit "Update", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect", style: "margin-left: 9.8em;", id: "post" %>
+            <br />
+            
+            
+        <%= f.file_field :avatar, id: "uploadBtn", class: "hideField", accept: "image/*" %>
+        
+        <br />
+        
+        <%= render "shared/image_upload" %>
+            
+    <% end %>
+    
+    <h1>Change account settings</h1>
+    
+    <%= render 'form' %>
 
-<div class="subheader">Change account settings</div>
-
-<%= render 'form' %>
+</div>

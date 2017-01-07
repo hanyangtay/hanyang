@@ -1,0 +1,13 @@
+<% provide(:title, @title) %>
+<div class="subheader"><%= @title %></div>
+<%= render 'shared/stats' %>
+<% if @users.any? %>
+<% @users.each do |user| %>
+        <%= link_to user.name, user %>
+<% end %>
+
+<% @users.each do |user| %>
+        <%= render @users %>
+<% end %>
+    
+<% end %>

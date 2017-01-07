@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
   
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -24,6 +28,10 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
   
   resources :status_posts, only: [:create, :destroy, :index]
+  get '/explore', to: 'status_posts#explore'
+  
+  resources :relationships, only: [:create, :destroy]
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,8 +1,8 @@
 <% provide(:title, 'Reset password') %>
+<div class="main-style-1">
+<h1>Reset password</h1>
 
-<div class="subheader">Reset password</div>
-
-<div class="mdl-card__supporting-text">
+<div class="mdl-card__supporting-text" style: "padding-top: 0.5em;">
   <%= form_for(:password_reset, url: password_resets_path) do |f| %>
   
       <div class="mdl-textfield mdl-js-textfield">
@@ -14,4 +14,7 @@
       <%= f.submit "Reset password", class: "mdl-button mdl-js-button 
                                   mdl-button--raised mdl-js-ripple-effect" %>
     <% end %>
+</div>
+
+
 </div>

@@ -7,7 +7,7 @@ class StatusPostsController < ApplicationController
         if @status_post.save
             flash[:info] = "Post created."
         else
-            flash[:danger] = "Post cannot be blank."
+            error_message(@status_post)
         end
         redirect_to request.referrer || status_posts_url
         
@@ -23,8 +23,13 @@ class StatusPostsController < ApplicationController
         @user = current_user
         if logged_in?
             @status_post  = current_user.status_posts.build
-            @status_posts = current_user.status_posts.page(params[:page]).per(10)
+            @status_posts = current_user.feed.page(params[:page]).per(10)
         end
+    end
+    
+    def explore
+        recent = StatusPost.order(created_at: :desc).limit(50)
+        @status_posts = recent.page(params[:page]).per(10)
     end
     
     private

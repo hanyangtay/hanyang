@@ -1,0 +1,15 @@
+one:
+  follower: Han
+  followed: Fritz
+
+two:
+  follower: Han
+  followed: Hy
+
+three:
+  follower: Hy
+  followed: Han
+
+four:
+  follower: Fritz
+  followed: Han

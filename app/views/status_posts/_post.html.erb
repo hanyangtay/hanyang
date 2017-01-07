@@ -1,28 +1,52 @@
 <% if @status_posts.any? %>
-      
+
     
-    <ul class="status_posts">
+    <ul class=" mdl-list status_posts">
+      
       <% @status_posts.each do |status_post| %>
+      
         <li id = "status_post-<%= status_post.id %>">
-          <%= link_to status_post.user.name, status_post.user, class: "mdl-navigation__link" %>
-          <%= status_post.content %> <br />
-          <%= image_tag status_post.picture.url if status_post.picture? %>
-          Posted <%= time_ago_in_words(status_post.created_at) %> ago.
-        <% if current_user?(status_post.user) %>
+          
+          <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--2-col postProfile">
+              <%= link_to status_post.user do %>
+                <%= image_tag @user.avatar.url, class: "profile_pic_small"%>
+              <% end %>
+            </div>
+            
+            <div class="mdl-cell mdl-cell--10-col">
+              <%= link_to status_post.user.name, status_post.user, class: "mdl-navigation__link" %>
               
-        <button id="show-dialog-<%= status_post.id %>" type="button" class="mdl-button">delete</button>
-        <dialog class="mdl-dialog">
-          <h4 class="mdl-dialog__title">Delete</h4>
-          <div class="mdl-dialog__content">
-            <p>
-              Delete post?
-            </p>
-          </div>
-          <div class="mdl-dialog__actions">
-            <%= button_to 'Delete', status_post, method: :delete, class: 'mdl-button' %>
-            <button type="button" class="mdl-button close-<%= status_post.id %>">Cancel</button>
-          </div>
-        </dialog>
+              <br />
+              
+              <%= status_post.content %> 
+              <br />
+              <% if status_post.picture? %>
+                <%= image_tag status_post.picture.url, class: "postPhoto"%>
+                <br />
+              <% end %>
+              
+              <span class="smallText">Posted <%= time_ago_in_words(status_post.created_at) %> ago.</span>
+              
+               <% if current_user?(status_post.user) %>
+              
+                <button id="show-dialog-<%= status_post.id %>" type="button" class="mdl-button">delete</button>
+                <dialog class="mdl-dialog">
+                  <h4 class="mdl-dialog__title">Delete</h4>
+                  <div class="mdl-dialog__content">
+                    <p>
+                      Delete post?
+                    </p>
+                  </div>
+                  <div class="mdl-dialog__actions">
+                    <%= button_to 'Delete', status_post, method: :delete, class: 'mdl-button' %>
+                    <button type="button" class="mdl-button close-<%= status_post.id %>">Cancel</button>
+                  </div>
+                </dialog>
+              
+            </div>
+
+       
         
   <script>
     var dialog = document.querySelector('dialog');
@@ -37,7 +61,8 @@
     dialog.querySelector('.close-<%= status_post.id %>').addEventListener('click', function() {
       dialog.close();
     });
-  </script>
+  </script>      
+
         
         
         <% end %>

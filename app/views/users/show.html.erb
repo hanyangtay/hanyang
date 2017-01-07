@@ -1,10 +1,38 @@
 <% provide(:title, @user.name) %>
+<div class = "main-style-2">
+<h1><%= @user.name %></h1>
 
-<div class="subheader"><%= @user.name %></div>
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--3-col mdl-cell--hide-tablet mdl-cell--hide-phone sidebar">
+    
+    <%= link_to @user do %>
+      <%= image_tag @user.avatar.url, class: "profile_pic"%>
+    <% end %>
+    
+    <br />
+    <br />
+    
+    <strong> <%= @user.status_posts.count %> </strong> posts <br />
+    
+    <strong> <%= @user.following.count %> </strong> following, 
+    <strong> <%= @user.followers.count %> </strong> followers
+            
+            
+            
+                
+    
 
-<% if current_user?(@user) %>
-      <%= render 'status_posts/form' %>
-<% end %>
+  </div>
 
-<%= @user.status_posts.count %> posts
-<%= render 'status_posts/post' %>
+  <div class="mdl-cell mdl-cell--9-col main">
+    <% if current_user?(@user) %>
+        <%= render 'status_posts/form' %>
+    <% end %>
+    <%= render 'status_posts/post' %>
+  </div>
+
+
+
+
+</div>
+</div>

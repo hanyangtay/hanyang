@@ -1,13 +1,4 @@
-<script type ="text/javascript">
-    function wordCount()
-    {
-        var post = document.getElementById("status_post_count");
-        var max = post.attributes.maxLength.value;
-        var total = post.value.length;
-
-        document.getElementById("wordCount").innerHTML = total + "/"+ max;
-    }
-</script>
+<%= render "shared/word_count" %>
 
 <%= render "shared/image_upload" %>
 
@@ -16,27 +7,24 @@
 
     <div class="mdl-textfield mdl-js-textfield textarea">
         <%= f.label :content, "What's on your mind?", class: "mdl-textfield__label", id: "status_post" %>
-        <%= f.text_area :content, onKeyUp: "wordCount()", maxLength: "140", class: "mdl-textfield__input is-invalid", id: "status_post_count", rows: "3" %>
+        <%= f.text_area :content, onKeyUp: "wordCount()", maxLength: "140", class: "mdl-textfield__input", id: "content_count", rows: "3" %>
         <span class="mdl-textfield__error">Character count exceeded.</span>
     </div>
 
 
     <div id="afterPost">
-        <p id="wordCount"> 0/140</p>
+        <p class="word_count"> 0/140</p>
         <%= label_tag "uploadBtn", nil do %>
             <div class="mdl-button mdl-button--primary mdl-button--icon mdl-button--file">
                 <i class="material-icons", style: "color: #3f51b5;">add_a_photo</i>
             </div>
         <% end %>
         <%= f.submit "Post", class: "mdl-button mdl-js-button 
-                                      mdl-button--raised mdl-js-ripple-effect", id: "post", style: "float:right;" %>
+                                      mdl-button--raised mdl-js-ripple-effect", id: "picture_post", style: "float:right;" %>
+        <%= f.file_field :picture, id: "uploadBtn", class: "hideField", accept: "image/*" %>
     </div>
     
-    <%= f.file_field :picture, id: "uploadBtn", class: "hideField", accept: "image/*" %>
-    
-    <br />
-    
-    <%= image_tag "", id: "preview", style: "max-width: 400px; height: auto; object-fit: cover;" %>
+    <%= image_tag '', id: "preview", style: "max-width: 400px; height: auto; object-fit: cover;visibility:hidden;" %>
     
     <%= render "shared/image_upload" %>
         

@@ -1,7 +1,19 @@
-<%= provide(:title, "Explore") %>
+<% provide(:title, 'Explore') %>
 
 <div class="main-style-1">
 <h1>Explore</h1>
-<%= render 'status_posts/post' %>
+    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+      
+      <div class="mdl-tabs__tab-bar">
+        <%= link_to "What's up?", explore_path, class: "mdl-tabs__tab is-active" %>
+        <%= link_to "Find everyone", users_path, class: "mdl-tabs__tab" %>
+        <%= link_to "Site News", "#", class: "mdl-tabs__tab" %>
+      </div>
 
+      <div class="mdl-tabs__panel is-active" id="posts-panel">
+            
+        <%= render 'status_posts/post' %>
+      </div>
+      
+    </div>
 </div>

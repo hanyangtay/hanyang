@@ -1,9 +1,19 @@
-<% provide(:title, 'All users') %>
+<% provide(:title, 'Explore') %>
 
-<div class="subheader">All users</div>
+<div class="main-style-1">
+<h1>Everyone</h1>
+    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+      
+      <div class="mdl-tabs__tab-bar">
+        <%= link_to "What's up?", explore_path, class: "mdl-tabs__tab" %>
+        <%= link_to "Find everyone", users_path, class: "mdl-tabs__tab is-active" %>
+        <%= link_to "Site News", "#", class: "mdl-tabs__tab" %>
+      </div>
 
-<ul class="users">
-  <%= render @users %>
-</ul>
-
-<%= paginate @users %>
+      <div class="mdl-tabs__panel is-active" id="posts-panel">
+            
+        <%= render 'status_posts/follow' %>
+      </div>
+      
+    </div>
+</div>

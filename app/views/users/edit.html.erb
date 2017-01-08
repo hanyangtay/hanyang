@@ -4,10 +4,11 @@
     
     <h1>Change profile picture</h1>  
 
-            
-        
+   
     <%= image_tag @user.avatar.url, id: "preview", class: "profile_pic_preview" %>
     <br />
+    
+    
     <%= form_for(@user, html: { multipart: true }) do |f| %>
             <%= label_tag "uploadBtn", nil do %>
             <div id="changeprofileWrapper">
@@ -19,7 +20,7 @@
             <% end %>
             </div>
             <br />
-            <%= f.submit "Update", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect", style: "margin-left: 9.8em;", id: "post" %>
+            <%= f.submit "Update", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect", style: "margin-left: 9.8em;", id: "picture_post" %>
             <br />
             
             
@@ -30,6 +31,27 @@
         <%= render "shared/image_upload" %>
             
     <% end %>
+    
+    <h1>Tagline</h1>  
+    
+    <p class="short">Give a one-liner about yourself.</p>
+    
+    <%= form_for(@user) do |f| %>
+        
+        <div class="mdl-textfield mdl-js-textfield textarea">
+            <%= f.label :tagline, class: "mdl-textfield__label" %>
+            <%= f.text_area :tagline, onKeyUp: "wordCount()", maxLength: "140", class: "mdl-textfield__input", id: "content_count", rows: "1" %>
+            <span class="mdl-textfield__error">Character count exceeded.</span>
+        </div>
+
+        <p id="afterPost" class="word_count">0/140</p>
+       
+        <%= f.submit "Update", class: "mdl-button mdl-js-button 
+                                      mdl-button--raised mdl-js-ripple-effect" %>
+            
+    <% end %>
+    
+    <br />
     
     <h1>Change account settings</h1>
     

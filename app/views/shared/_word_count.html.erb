@@ -1,0 +1,10 @@
+<script type ="text/javascript">
+    function wordCount()
+    {
+        var post = document.getElementById("content_count");
+        var max = post.attributes.maxLength.value;
+        var total = post.value.length;
+
+        document.getElementsByClassName("word_count")[0].innerHTML = total + "/"+ max;
+    }
+</script>

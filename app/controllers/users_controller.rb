@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy, 
+  before_action :logged_in_user, only: [:edit, :update, :destroy, 
                                         :following, :followers]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
-      redirect_to @user
+      redirect_to edit_user_path(@user)
     else
       error_message(@user)
       render 'edit'
@@ -52,24 +52,22 @@ class UsersController < ApplicationController
   end
   
   def following
-    @title = "Following"
     @user = User.find(params[:id])
-    @users = @user.following.page(params[:page])
-    render 'show_follow'
+    @follow = @user.following.page(params[:page]).per(10)
+    render 'show_following'
   end
   
   def followers
-    @title = "Followers"
     @user = User.find(params[:id])
-    @users = @user.followers.page(params[:page])
-    render 'show_follow'
+    @follow = @user.followers.page(params[:page]).per(10)
+    render 'show_followers'
   end
   
   private
   
     def user_params
       params.require(:user).permit(:name, :email, :password, 
-                                    :password_confirmation, :avatar)
+                                    :password_confirmation, :avatar, :tagline)
     end
     
     def correct_user

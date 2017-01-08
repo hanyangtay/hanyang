@@ -20,8 +20,8 @@
       <br />
       <%= f.label :remember_me, class: "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" do %>
         <%= f.check_box :remember_me, class: "mdl-checkbox__input" %>
-        <span class = "smallText">Remember me 
-        <%= link_to "Forgot password?", new_password_reset_path, class: "mdl-navigation__link", id: "forget_password" %> 
+        <span class="form_smalltext"> Remember me
+        <%= link_to "Forgot password?", new_password_reset_path, class: "mdl-navigation__link form_smalltext", style: "margin-left:8em;" %> 
       <% end %>
       </span>
       <br /><br />
@@ -32,7 +32,7 @@
 
     <br />
     <br />
-    <p>New user? <%= link_to "Sign up now!", signup_path %>
+    <p class="short">New user? <%= link_to "Sign up now!", signup_path %>
     <br />
     Or check out <%= link_to "Projects", projects_path %> for guest accounts.</p>
 </div>

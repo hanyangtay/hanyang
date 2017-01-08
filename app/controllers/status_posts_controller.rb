@@ -1,9 +1,10 @@
 class StatusPostsController < ApplicationController
     before_action :logged_in_user, only: [:create, :destroy, :show]
     before_action :correct_user, only: :destroy
-    
+
+
     def create
-        @status_post = current_user.status_posts.build(status_post_params)
+        @status_post= current_user.status_posts.build(status_post_params)
         if @status_post.save
             flash[:info] = "Post created."
         else

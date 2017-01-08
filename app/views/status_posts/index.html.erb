@@ -3,32 +3,44 @@
 <h1>App Home</h1>
 
 <div class="mdl-grid">
-  <div class="mdl-cell mdl-cell--3-col mdl-cell--hide-tablet mdl-cell--hide-phone sidebar">
-    
-    <%= link_to @user do %>
-      <%= image_tag @user.avatar.url, class: "profile_pic"%>
-    <% end %>
-    
-    <br />
-    <br />
-    
-    <strong> <%= @user.status_posts.count %> </strong> posts <br />
-    
-    <strong> <%= @user.following.count %> </strong> following, 
-    <strong> <%= @user.followers.count %> </strong> followers
-    
-
-  </div>
   
+  <div class="mdl-cell mdl-cell--3-col mdl-cell--hide-tablet mdl-cell--hide-phone sidebar">
+    <%= render 'shared/stats' %>
+  </div>
   
   
   <div class="mdl-cell mdl-cell--9-col main">
-    <%= render 'status_posts/form' %>
-    <%= render 'status_posts/post' %>
+    
+    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+      
+      <div class="mdl-tabs__tab-bar">
+        <a href="#wall-panel" class="mdl-tabs__tab is-active">Wall</a>
+        <a href="#news-panel" class="mdl-tabs__tab">Site News</a>
+        <a href="#notifications-panel" class="mdl-tabs__tab">Notifications</a>
+      </div>
+
+      <div class="mdl-tabs__panel is-active" id="wall-panel">
+        <%= render 'status_posts/form' %>
+        <%= render 'status_posts/post' %>
+      </div>
+      
+      <div class="mdl-tabs__panel" id="news-panel">
+        <ul>
+          <li>Tywin</li>
+          <li>Cersei</li>
+          <li>Jamie</li>
+          <li>Tyrion</li>
+        </ul>
+      </div>
+      <div class="mdl-tabs__panel" id="notifications-panel">
+        <ul>
+          <li>Viserys</li>
+          <li>Daenerys</li>
+        </ul>
+      </div>
+      
+    </div>
   </div>
-
-
-
 
 </div>
 </div>

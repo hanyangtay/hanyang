@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
   
+  get '/explore', to: 'status_posts#explore'
+  
   resources :users do
     member do
       get :following, :followers
@@ -28,7 +30,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
   
   resources :status_posts, only: [:create, :destroy, :index]
-  get '/explore', to: 'status_posts#explore'
+  
   
   resources :relationships, only: [:create, :destroy]
 

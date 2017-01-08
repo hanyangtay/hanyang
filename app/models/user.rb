@@ -31,6 +31,10 @@ class User < ApplicationRecord
         
     validates :password, presence: true, length: { minimum: 8 },
         format: { with: STRONG_PASSWORD_REGEX}, allow_nil: true
+        
+    validate :avatar_size
+
+    validates :tagline, presence: true, length: { maximum: 140 }
     
     def User.digest(string)
         cost = ActiveModel::SecurePassword.min_cost ? 
@@ -58,7 +62,9 @@ class User < ApplicationRecord
     end
     
     def activate
-        update_columns(activated: true, activated_at: Time.zone.now)
+        number = rand(6) + 1
+        update_columns(activated: true, activated_at: Time.zone.now, 
+        avatar: Rails.root.join("db/default/avatar_#{number}.png").open)
     end
     
     def send_activation_email
@@ -107,6 +113,12 @@ class User < ApplicationRecord
         def create_activation_digest
             self.activation_token = User.new_token
             self.activation_digest = User.digest(activation_token)
+        end
+        
+        def avatar_size
+            if avatar.size > 8.megabytes
+                errors.add(:avatar, "should be less than 8MB")
+            end
         end
 
 end

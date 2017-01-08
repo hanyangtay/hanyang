@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20170107014839) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                                                                              null: false
+    t.datetime "updated_at",                                                                              null: false
     t.string   "password_digest"
     t.string   "remember_digest"
     t.boolean  "admin",             default: false
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20170107014839) do
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
     t.string   "avatar"
-    t.string   "caption"
+    t.string   "tagline",           default: "I don't have a tagline because I'm too lazy to update it."
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

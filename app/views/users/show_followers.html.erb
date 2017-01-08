@@ -14,19 +14,15 @@
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
       
       <div class="mdl-tabs__tab-bar">
-        <%= link_to "Posts", @user, class: "mdl-tabs__tab is-active" %>
+        <%= link_to "Posts", @user, class: "mdl-tabs__tab" %>
         <%= link_to "Following",following_user_path(@user), class: "mdl-tabs__tab" %>
-        <%= link_to "Followers", followers_user_path(@user), class: "mdl-tabs__tab" %>
+        <%= link_to "Followers", followers_user_path(@user), class: "mdl-tabs__tab is-active" %>
         <a href="#likes-panel" class="mdl-tabs__tab">Likes</a>
       </div>
 
-      <div class="mdl-tabs__panel is-active" id="posts-panel">
-        
-        <% if current_user?(@user) %>
-          <%= render 'status_posts/form' %>
-        <% end %>
-            
-        <%= render 'status_posts/post' %>
+      <div class="mdl-tabs__panel is-active" id="followers-panel">
+              
+        <%= render 'users/follow' %>
       </div>
       
     </div>

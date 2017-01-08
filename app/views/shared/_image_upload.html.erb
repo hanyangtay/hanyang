@@ -30,6 +30,8 @@ function previewFile() {
 
   if (file) {
     reader.readAsDataURL(file);
+    preview.style.visibility = 'visible';
+
   }
 }
 function getExtension(filename) {
@@ -50,24 +52,24 @@ function isImage(filename) {
     return false;
 }
 
-document.addEventListener('turbolinks:load', function() {
+window.onload = function() {
 
     document.getElementById("uploadBtn").onchange = function () {
   var filename = this.files[0].name;
   
   if (this.files[0].size > 8388608) {
       showErrorMsg("Image size should be less than 8MB.");
-      $('#post').prop('disabled', true);
+      $('#picture_post').prop('disabled', true);
   } else if (!isImage(filename)) {
       showErrorMsg("Only image files are allowed.");
-      $('#post').prop('disabled', true);
+      $('#picture_post').prop('disabled', true);
   } else {
-      $('#post').prop('disabled', false);
+      $('#picture_post').prop('disabled', false);
       previewFile();
   }
 
 };
-}, false);
+};
 
 
 

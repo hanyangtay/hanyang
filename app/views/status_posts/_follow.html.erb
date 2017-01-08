@@ -1,11 +1,8 @@
-<% if @follow.any? %>
-
-    
-    <ul class=" mdl-list">
+<ul class=" mdl-list">
       
-      <% @follow.each do |user| %>
+      <% @users.each do |user| %>
       
-        <li id = "follow-<%= user.id %>">
+        <li id = "user-<%= user.id %>">
           
           <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--2-col small_side_profile">
@@ -52,7 +49,6 @@
         
       <% end %>
       
-    </ul>
+</ul>
     
-    <%= paginate @follow %>
-<% end %>
+    <%= paginate @users %>

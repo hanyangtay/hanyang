@@ -2,7 +2,7 @@
 <% provide(:button_text, 'Update') %>
 <div class="main-style-1">
     
-    <h1>Change profile picture</h1>  
+    <h1>Change profile</h1>  
 
    
     <%= image_tag @user.avatar.url, id: "preview", class: "profile_pic_preview" %>
@@ -10,18 +10,29 @@
     
     
     <%= form_for(@user, html: { multipart: true }) do |f| %>
-            <%= label_tag "uploadBtn", nil do %>
             <div id="changeprofileWrapper">
+                <%= label_tag "uploadBtn", nil do %>
                 <div class="mdl-button mdl-button--primary mdl-button--icon mdl-button--file">
                     <i class="material-icons", style: "color: #3f51b5;">add_a_photo</i>
                 </div>
                 &nbsp;
             <span class="smallText">Add a photo</span>
-            <% end %>
+                <% end %>
             </div>
-            <br />
+            
+            <div style="width:80%">
+                <div class="mdl-textfield mdl-js-textfield textarea" >
+                    <%= f.label :tagline, class: "mdl-textfield__label" %>
+                    <%= f.text_area :tagline, onKeyUp: "wordCount()", maxLength: "140", class: "mdl-textfield__input tagline_form", id: "content_count", rows: "1" %>
+                    <span class="mdl-textfield__error">Character count exceeded.</span>
+                </div>
+                
+    
+                <p id="afterPost" class="word_count">0/140</p>
+            </div>
             <%= f.submit "Update", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect", style: "margin-left: 9.8em;", id: "picture_post" %>
             <br />
+            
             
             
         <%= f.file_field :avatar, id: "uploadBtn", class: "hideField", accept: "image/*" %>
@@ -29,28 +40,9 @@
         <br />
         
         <%= render "shared/image_upload" %>
-            
-    <% end %>
-    
-    <h1>Tagline</h1>  
-    
-    <p class="short">Give a one-liner about yourself.</p>
-    
-    <%= form_for(@user) do |f| %>
-        
-        <div class="mdl-textfield mdl-js-textfield textarea">
-            <%= f.label :tagline, class: "mdl-textfield__label" %>
-            <%= f.text_area :tagline, onKeyUp: "wordCount()", maxLength: "140", class: "mdl-textfield__input", id: "content_count", rows: "1" %>
-            <span class="mdl-textfield__error">Character count exceeded.</span>
-        </div>
 
-        <p id="afterPost" class="word_count">0/140</p>
-       
-        <%= f.submit "Update", class: "mdl-button mdl-js-button 
-                                      mdl-button--raised mdl-js-ripple-effect" %>
             
     <% end %>
-    
     <br />
     
     <h1>Change account settings</h1>

@@ -62,9 +62,7 @@ class User < ApplicationRecord
     end
     
     def activate
-        number = rand(6) + 1
-        update_columns(activated: true, activated_at: Time.zone.now, 
-        avatar: Rails.root.join("db/default/avatar_#{number}.png").open)
+        update_columns(activated: true, activated_at: Time.zone.now)
     end
     
     def send_activation_email

@@ -1,0 +1,11 @@
+$("#follow-form-<%= @user_reln.id %>").html("<%= escape_javascript(render(partial: 'users/unfollow', object: @user_reln, as: 'user')) %>");
+
+var currentPage = $("h1").text();
+
+if (currentPage == "<%= @user_reln.name %>") {
+    $("#stats-followers").html('<%= @user_reln.followers.count %>');
+}
+
+else if (currentPage == "<%= current_user.name %>") {
+    $("#stats-following").html('<%= current_user.following.count %>');
+}

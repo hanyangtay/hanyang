@@ -4,9 +4,7 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
   
-  def index
-    @users = User.where(activated: true).order(:id).page(params[:page]).per(10)
-  end
+
   
   def show
     @user = User.find(params[:id])
@@ -38,7 +36,7 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
-      redirect_to edit_user_path(@user)
+      redirect_to status_posts_url
     else
       error_message(@user)
       render 'edit'
@@ -51,15 +49,19 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
   
+  def index
+    @users = User.where(activated: true).order(:id).page(params[:page]).per(10)
+  end
+  
   def following
     @user = User.find(params[:id])
-    @follow = @user.following.page(params[:page]).per(10)
+    @users = @user.following.page(params[:page]).per(10)
     render 'show_following'
   end
   
   def followers
     @user = User.find(params[:id])
-    @follow = @user.followers.page(params[:page]).per(10)
+    @users = @user.followers.page(params[:page]).per(10)
     render 'show_followers'
   end
   

@@ -18,32 +18,26 @@
     <br />
     
     <%= link_to user_path(@user, anchor: "following-panel") do %>
-    <strong> <%= @user.following.count %> </strong> following,
+    <strong id="stats-following"> <%= @user.following.count %> </strong> following,
     <% end %>
     
     <%= link_to user_path(@user, anchor: "followers-panel") do %>
-    <strong> <%= @user.followers.count %> </strong> followers
+    <strong id="stats-followers"> <%= @user.followers.count %> </strong> followers
     <% end %>
     
     <br />
     <br />
     <% unless current_user?(@user) %>
+                    <span id="follow-form-<%= @user.id %>">
                     <% if current_user.following?(@user) %>
                     
-                        <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
-                            html: { method: :delete }) do |f| %>
-                            <%= f.submit "Unfollow", class: "mdl-button mdl-js-button 
-                                                  mdl-button--raised mdl-js-ripple-effect" %>
-                        <% end %>
+                        <%= render partial: "users/unfollow", object: @user, as: 'user' %>
                         
                     <% else %>
                     
-                        <%= form_for(current_user.active_relationships.build) do |f| %>
-                            <div><%= hidden_field_tag :followed_id, @user.id %></div>
-                            <%= f.submit "Follow", class: "mdl-button mdl-js-button 
-                                                          mdl-button--raised mdl-js-ripple-effect mdl-button--colored" %>
-                            <% end %>
+                        <%= render partial: "users/follow", object: @user, as: 'user' %>
             
                     <% end %>
+                    </span>
     
                 <% end %>

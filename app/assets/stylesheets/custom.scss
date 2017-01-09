@@ -225,7 +225,7 @@ h2 {
 }
 
 #coverpic {
-    background-image: url('personal/cover.jpg');
+    background-image: url(image_path('personal/cover.jpg'));
     background-size: contain;
     background-repeat: no-repeat;
     width: 100%;
@@ -276,6 +276,10 @@ h2 {
   color: rgba(0,0,0, 0.54);
 }
 
+.tagline_form{
+  font-weight: 300;
+  font-size: 12px;
+}
 
 /* Buttons */
 .mdl-button {

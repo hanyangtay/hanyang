@@ -1,4 +1,4 @@
-#hanyangtay
+# hanyangtay
 
 Everything about me, Han Yang Tay, with my live code projects
 
@@ -11,6 +11,7 @@ Seeing is believing, visit me here (https://hanyangtay.herokuapp.com).
 ## Projects
 
 ### Personal Portfolio
+---
 
 Built with Google's Material Design Lite framework, featuring a responsive design.
 All I have to say is, front-end development is tedious. 
@@ -18,6 +19,7 @@ All I have to say is, front-end development is tedious.
 Tools used: HTML, CSS, MDL framework, Adobe Photoshop
 
 ### Mini-Twitter
+---
 
 A Twitter app with my own UI design concept. Built with Ruby on Rails.
 It's live! You can play with it here (https://hanyangtay.herokuapp.com/login).
@@ -48,5 +50,6 @@ Learned the MVC model by repeatedly coding different relationships between users
 Tools used: Ruby on Rails, Heroku Postgres, Jquery
 
 ### Live Chat
+---
 
 Coming soon

@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170107014839) do
+ActiveRecord::Schema.define(version: 20170110204019) do
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "liked_post_id"
+    t.integer  "liked_user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["liked_post_id", "created_at"], name: "index_likes_on_liked_post_id_and_created_at"
+    t.index ["liked_post_id", "liked_user_id"], name: "index_likes_on_liked_post_id_and_liked_user_id", unique: true
+    t.index ["liked_user_id", "created_at"], name: "index_likes_on_liked_user_id_and_created_at"
+  end
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"
@@ -28,6 +38,8 @@ ActiveRecord::Schema.define(version: 20170107014839) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "picture"
+    t.integer  "repost_id"
+    t.index ["repost_id"], name: "index_status_posts_on_repost_id"
     t.index ["user_id", "created_at"], name: "index_status_posts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_status_posts_on_user_id"
   end
@@ -47,6 +59,7 @@ ActiveRecord::Schema.define(version: 20170107014839) do
     t.datetime "reset_sent_at"
     t.string   "avatar"
     t.string   "tagline",           default: "I don't have a tagline because I'm too lazy to update it."
+    t.boolean  "guest",             default: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

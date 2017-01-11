@@ -1,0 +1,7 @@
+<%= form_for(current_user.like_relationships.build, remote: true) do |f| %>
+    <%= hidden_field_tag :status_post_id, status_post.id %>
+    <%= button_tag class: "post-button like" do %>
+        <i class="material-icons">favorite</i>
+    <% end %>
+                        
+<% end %>

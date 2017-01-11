@@ -1,0 +1,4 @@
+$("#like-form-<%= @status_post.id %>").html("<%= escape_javascript(render(partial: 'status_posts/like', object: @status_post, as: 'status_post')) %>");
+
+$("#stats-likes-<%= @status_post.id %>").html('<%= @status_post.liked_users.count %>');
+

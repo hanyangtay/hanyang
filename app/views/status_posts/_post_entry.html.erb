@@ -1,0 +1,57 @@
+<li id = "status_post-<%= status_post.id %>">
+          
+    <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--2-col small_side_profile">
+              <%= link_to status_post.user do %>
+                <%= image_tag status_post.user.avatar.url, class: "profile_pic_small"%>
+              <% end %>
+            </div>
+            
+            <div class="mdl-cell mdl-cell--10-col">
+               
+             <%= link_to status_post.user.name, status_post.user, class: "mdl-navigation__link username" %>
+              
+                <% if !status_post.original_post.nil? %>
+                    <%= link_to status_post.original_post.user, class: "mdl-navigation__link quote-original-user" do %>
+                        <i class="material-icons quote-original-user-icon">format_quote</i> <%= status_post.original_post.user.name %>
+                    <% end %>
+                <% end %>
+                
+                <% if current_user?(status_post.user) %>
+                  
+                    <%= render partial: "status_posts/delete_button", object: status_post, as: 'status_post' %>
+                
+                <% end %>
+              
+               
+                <br />
+              
+              <%= status_post.content %> 
+              <br />
+              <% if status_post.picture? %>
+                <%= image_tag status_post.picture.url, class: "postPhoto"%>
+                <br />
+              <% end %>
+
+              <span class="smallText">Posted <%= time_ago_in_words(status_post.created_at) %> ago.</span>
+
+              <%= render partial: "status_posts/like_button", object: status_post, as: 'status_post' %>
+              
+              
+              <span id="stats-likes-<%= status_post.id %>" class="stats post-button-text">
+                <%= status_post.liked_users.count %>
+              </span>
+              
+              <%= render partial: "status_posts/quote_button", object: status_post, as: 'status_post' %>
+
+              <span id="stats-quotes-<%= status_post.id %>" class="stats post-button-text">
+                
+                <% if status_post.original_post %>
+                  <%= status_post.original_post.reposts.count %>
+                <% else %>
+                  <%= status_post.reposts.count %>
+                <% end %>
+              </span>
+    </div>
+        
+</li>

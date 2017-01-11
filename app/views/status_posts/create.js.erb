@@ -1,0 +1,15 @@
+$("main").append("<%= escape_javascript(render(partial: 'shared/flash_message_ajax')) %>");
+
+$("#content_count").val("");
+
+$("#all-status-posts").prepend("<%= escape_javascript(render(partial: 'status_posts/post_entry', object: @status_post, as: 'status_post')) %>");
+
+var currentPage = $("h1").text();
+
+if (currentPage == "<%= current_user.name %>" || currentPage == "App Home") {
+    $("#stats-posts").html('<%= current_user.status_posts.count %>');
+}
+
+
+
+

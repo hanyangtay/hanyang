@@ -3,6 +3,7 @@ class UsersController < ApplicationController
                                         :following, :followers]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
+  before_action :not_guest, only: :update
   
 
   
@@ -23,7 +24,7 @@ class UsersController < ApplicationController
     if @user.save
       @user.send_activation_email
       flash[:info] = "Please check your email to activate your account."
-      redirect_to root_url
+      redirect_to login_url
     else
       error_message(@user)
       render 'new'
@@ -50,7 +51,7 @@ class UsersController < ApplicationController
   end
   
   def index
-    @users = User.where(activated: true).order(:id).page(params[:page]).per(10)
+    @users = User.where(activated: true).page(params[:page]).per(10)
   end
   
   def following
@@ -65,6 +66,12 @@ class UsersController < ApplicationController
     render 'show_followers'
   end
   
+  def liked_posts
+    @user = User.find(params[:id])
+    @status_posts = @user.liked_posts.page(params[:page]).per(10)
+
+  end
+  
   private
   
     def user_params
@@ -76,14 +83,21 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       unless current_user?(@user)
         flash[:danger] = "Not authorised."
-        redirect_to root_url
+        redirect_to status_posts_url
       end
     end
     
     def admin_user
       if !current_user.admin?
         flash[:danger] = "Not authorised."
-        redirect_to(root_url)
+        redirect_to(status_posts_url)
+      end
+    end
+    
+    def not_guest
+      if current_user.guest?
+        flash[:danger] = "Not authorised."
+        redirect_to(status_posts_url)
       end
     end
   

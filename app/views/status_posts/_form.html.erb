@@ -3,7 +3,7 @@
 <%= render "shared/image_upload" %>
 
 <div class="new_status_post">
-<%= form_for(@status_post, html: { multipart: true }) do |f| %>
+<%= form_for(@status_post, html: { multipart: true }, remote: true) do |f| %>
 
     <div class="mdl-textfield mdl-js-textfield textarea">
         <%= f.label :content, "What's on your mind?", class: "mdl-textfield__label", id: "status_post" %>

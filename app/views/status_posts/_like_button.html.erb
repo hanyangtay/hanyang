@@ -1,0 +1,19 @@
+<% if !current_user.nil? %>
+
+    <span id="like-form-<%= status_post.id %>">
+        <% if current_user.like?(status_post) %>
+            <%= render partial: "status_posts/unlike", object: status_post, as: 'status_post' %>
+
+        <% else %>
+            <%= render partial: "status_posts/like", object: status_post, as: 'status_post' %>
+
+        <% end %>
+    </span>
+  
+<% else %>
+
+    <%= button_tag class:  "post-button like not-logged-in-1" do %>
+        <i class="material-icons">favorite</i>
+    <% end %>
+    
+<% end %>

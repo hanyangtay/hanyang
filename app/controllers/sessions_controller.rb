@@ -19,7 +19,24 @@ class SessionsController < ApplicationController
     end
   end
   
-
+  def new_guest
+    @user = User.find_by(email: "guest@han.io")
+    log_in @user
+    redirect_back_or status_posts_path
+  end
+  
+  def new_guest_2
+    @user = User.find_by(email: "guest2@han.io")
+    log_in @user
+    redirect_back_or status_posts_path
+  end
+  
+  def new_guest_3
+    @user = User.find_by(email: "guest3@han.io")
+    log_in @user
+    redirect_back_or status_posts_path
+  end
+  
   def destroy
     if logged_in?
       log_out

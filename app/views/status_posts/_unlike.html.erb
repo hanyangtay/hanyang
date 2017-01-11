@@ -1,0 +1,7 @@
+<%= form_for(current_user.like_relationships.find_by(liked_post_id: status_post.id),
+        html: { method: :delete }, remote: true) do |f| %>
+    <%= button_tag class: "post-button unlike" do %>
+        <i class="material-icons">favorite</i>
+    <% end %>
+
+<% end %>

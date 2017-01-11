@@ -34,7 +34,17 @@
     <br />
     <p class="short">New user? <%= link_to "Sign up now!", signup_path %>
     <br />
-    Or check out <%= link_to "Projects", projects_path %> for guest accounts.</p>
+    Or use one of these guest accounts: 
+    <%= link_to guest_login_path do |f| %>
+      <%= image_tag "default/avatar_5.png", class: "guest-account-login" %>
+    <% end %>
+    <%= link_to guest_login2_path do |f| %>
+      <%= image_tag "default/avatar_6.png", class: "guest-account-login" %>
+    <% end %>
+    <%= link_to guest_login3_path do |f| %>
+      <%= image_tag "default/avatar_7.png", class: "guest-account-login" %>
+    <% end %>
+    </p>
 </div>
 
 

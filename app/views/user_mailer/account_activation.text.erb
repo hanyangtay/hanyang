@@ -1,10 +1,11 @@
 Hi <%= @user.name %>,
 
-Thanks for being curious about my work! Please confirm your email address and activate your account by clicking this link:
 
-<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
+Thanks for being curious about my work! Please confirm your email address and activate your account by going to this link: 
+<%= edit_account_activation_url(@user.activation_token, email: @user.email)  %>
 
 Feel free to reach out to me at htay@wesleyan.edu.
+
 
 Regards,
 Han Yang Tay

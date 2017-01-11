@@ -1,13 +1,73 @@
 <% provide(:title, "Projects") %>
-<div class="main-style-1">
+<div class="main-style-2">
 <h1>Projects</h1>
-<p>Sign up for an account to see everything in action.</p>
-<p>Or, login using this trial account.</p>
-<br />
-<%= link_to signup_path do %>
-<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-  sign up
-</button>
-<% end %>
+<span class="short" style="line-height:1.4em;">
+Seeing is believing. <br />
+All my projects are live. Play with them by clicking this 
+
+<button id="others_mock" class="main-header mdl-navigation__link 
+  mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+  <i class="material-icons" role="presentation">more_vert</i>
+</button> at the top right.
+
+<script type="text/javascript">
+  document.addEventListener("turbolinks:load", function() {
+  $("#others_mock").bind("click", function(){
+  $("#others").click();});
+});
+</script>
+
+</span>
+<br /> <br /><br />
+
+
+<div class="mdl-grid">
+  
+  <div class="mdl-cell mdl-cell--4-col">
+      <div class="ih-item circle effect1"><a href="#">
+        <div class="spinner"></div>
+        <div class="img"><i class="material-icons project_icon">face</i></div>
+        <div class="info">
+        <div class="info-back">
+          <h3>Personal Website</h3>
+            <p>Static portfolio website</p>
+        </div>
+      </div></a></div>
+  </div>
+  
+  <div class="mdl-cell mdl-cell--4-col">
+    <div class="ih-item circle effect1"><a href="#">
+      <div class="spinner"></div>
+      <div class="img"><i class="material-icons project_icon">format_quote</i></div>
+      <div class="info">
+      <div class="info-back">
+        <h3>Mini-Twitter</h3>
+          <p>I copied it</p>
+      </div>
+    </div></a></div>
+  </div>
+  
+  <div class="mdl-cell mdl-cell--4-col">
+    <div class="ih-item circle effect1"><a href="#">
+      <div class="spinner"></div>
+      <div class="img"><i class="material-icons project_icon">chat_bubble_outline</i></div>
+      <div class="info">
+      <div class="info-back">
+        <h3>Live chat</h3>
+          <p>Coming soon.</p>
+      </div>
+    </div></a></div>
+  </div>
 
 </div>
+
+
+  
+
+
+
+
+
+
+</div>
+

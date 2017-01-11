@@ -9,6 +9,12 @@ class User < ApplicationRecord
                                     dependent: :destroy
     has_many :following, through: :active_relationships, source: :followed
     has_many :followers, through: :passive_relationships
+    
+    has_many :like_relationships, class_name:  "Like",
+                                  foreign_key: "liked_user_id",
+                                  dependent:   :destroy
+    
+    has_many :liked_posts, through: :like_relationships
 
     
     attr_accessor :remember_token, :activation_token, :reset_token
@@ -101,6 +107,20 @@ class User < ApplicationRecord
     def following?(other_user)
         following.include?(other_user)
     end
+    
+    def like(other_post)
+        liked_posts << other_post unless self.like?(other_post)
+    end
+    
+    def unlike(other_post)
+        liked_posts.delete(other_post)
+    end
+        
+    def like?(other_post)
+        liked_posts.include?(other_post)
+    end
+    
+    
     
     private
         

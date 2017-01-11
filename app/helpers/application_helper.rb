@@ -1,11 +1,15 @@
 module ApplicationHelper
     
     def error_message(object)
-        flash[:danger] = object.errors.full_messages.first.gsub("\'", "no")
+        object.errors.full_messages.each do |msg|
+        flash[:danger] = msg.html_safe
+        end
     end
     
     def error_message_now(object)
-        flash.now[:danger] = object.errors.full_messages.first.gsub("\'", "no")
+        object.errors.full_messages.each do |msg|
+        flash.now[:danger] = msg.html_safe
+        end
     end
     
 end

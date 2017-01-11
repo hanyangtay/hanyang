@@ -1,16 +1,8 @@
-
-
-<div id="image-error" class="flash-alert-danger mdl-js-snackbar mdl-snackbar">
-      <div class="mdl-snackbar__text"></div>
-      <button class="mdl-snackbar__action" type="button"></button>
-</div>
-
-
 <script type = "text/javascript">
 
 function showErrorMsg(error_msg) {
   'use strict';
-  var snackbarContainer = document.querySelector('#image-error');
+  var snackbarContainer = document.querySelector('.flash-alert-danger');
 
     var data = {
       message: error_msg,

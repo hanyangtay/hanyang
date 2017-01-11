@@ -1,0 +1,50 @@
+<% if !current_user.nil? %>
+
+    <%= button_tag class: "post-button quote", id: "show-dialog-quote-#{status_post.id}" do %>
+        <i class="material-icons">format_quote</i>
+    <% end %>
+    
+    <dialog class="mdl-dialog" id="dialog-post-quote-<%= status_post.id %>">
+        
+        <h4 class="mdl-dialog__title">Quote?</h4>
+        <div class="mdl-dialog__content">
+            <p>
+                <%= status_post.content %>
+            </p>
+            <span style="font-size: 10px; color: #bdbdbd;"><%= status_post.user.name %></span>
+        </div>
+        
+        <div class="mdl-dialog__actions">
+            <%= form_for(current_user.status_posts.build, url: repost_status_post_path(status_post), html: {class: "dialog-quote"}) do |f| %>
+                <%= button_to 'Quote', status_post, method: :repost, class: "mdl-button" %>
+                <button type="button" class="mdl-button close-quote-dialog-<%= status_post.id %>">Cancel</button>   
+            <% end %>
+    
+      
+        </div>
+    </dialog>
+        
+    <script type="text/javascript">
+        var dialog_quote_<%= status_post.id %> = document.getElementById('dialog-post-quote-<%= status_post.id %>');
+        
+        dialogPolyfill.registerDialog(dialog_quote_<%= status_post.id %>);
+        
+        var showDialogButton = document.getElementById('show-dialog-quote-<%= status_post.id %>');
+        
+        showDialogButton.addEventListener('click', function() {
+          dialog_quote_<%= status_post.id %>.showModal();
+        });
+        
+        dialog_quote_<%= status_post.id %>.querySelector('.close-quote-dialog-<%= status_post.id %>').addEventListener('click', function() {
+          dialog_quote_<%= status_post.id %>.close();
+        });
+    </script>    
+
+<% else %>
+
+    <%= button_tag class:  "post-button quote not-logged-in-2" do %>
+        <i class="material-icons">format_quote</i>
+    <% end %>
+
+
+<% end %>

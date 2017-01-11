@@ -1,0 +1,21 @@
+$("main").append("<%= escape_javascript(render(partial: 'shared/flash_message_ajax')) %>");
+
+var currentPage = $("h1").text();
+
+if (currentPage == "<%= current_user.name %>" || currentPage == "App Home" || currentPage == "Explore") {
+    $("#stats-posts").html('<%= current_user.status_posts.count %>');
+    
+    
+    var page = $(".page .current").text();
+    if (page == "1"){
+        $("#all-status-posts").prepend("<%= escape_javascript(render(partial: 'status_posts/post_entry', object: @status_post, as: 'status_post')) %>");
+    }
+}
+
+$("#stats-quotes-<%= @original_post.id %>").html('<%= @original_post.reposts.count %>');
+
+<% @original_post.reposts.each do |post| %>
+    $("#stats-quotes-<%= post.id %>").html('<%= @original_post.reposts.count %>');
+<% end %>
+
+

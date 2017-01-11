@@ -5,7 +5,7 @@ class RelationshipsController < ApplicationController
         @user_reln = User.find(params[:followed_id])
         current_user.follow(@user_reln)
         respond_to do |format|
-          format.html { redirect_to request.referrer || status_posts }
+          format.html { redirect_to request.referrer || status_posts_url }
           format.js
         end
     end
@@ -19,7 +19,7 @@ class RelationshipsController < ApplicationController
             @user_reln = @user_reln.followed
             current_user.unfollow(@user_reln)
             respond_to do |format|
-              format.html { redirect_to request.referrer || status_posts }
+              format.html { redirect_to request.referrer || status_posts_url }
               format.js
             end
             

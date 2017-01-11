@@ -1,0 +1,32 @@
+<%= button_tag class: "post-button delete", id: "show-dialog-status_post-#{status_post.id}" do %>
+    <i class="material-icons">close</i>
+<% end %>
+  
+<dialog class="mdl-dialog" id="dialog-post-<%= status_post.id %>">
+    <h4 class="mdl-dialog__title">Delete</h4>
+    <div class="mdl-dialog__content">
+        <p> Delete post? </p>
+    </div>
+    <div class="mdl-dialog__actions">
+        <%= form_for(status_post, html: { method: :delete }, remote: true) do |f| %>
+
+            <%= button_to 'Delete', status_post, method: :delete, class: "mdl-button close-status_post-#{status_post.id}" %>
+            <button type="button" class="mdl-button close-2-status_post-<%= status_post.id %>">Cancel</button>    
+        <% end %>
+    </div>
+</dialog>
+
+<script type="text/javascript">
+    var dialog_<%= status_post.id %> = document.getElementById('dialog-post-<%= status_post.id %>');
+    dialogPolyfill.registerDialog(dialog_<%= status_post.id %>);
+    var showDialogButton = document.getElementById('show-dialog-status_post-<%= status_post.id %>');
+    showDialogButton.addEventListener('click', function() {
+          dialog_<%= status_post.id %>.showModal();
+    });
+    dialog_<%= status_post.id %>.querySelector('.close-status_post-<%= status_post.id %>').addEventListener('click', function() {
+          dialog_<%= status_post.id %>.close();
+    });
+    dialog_<%= status_post.id %>.querySelector('.close-2-status_post-<%= status_post.id %>').addEventListener('click', function() {
+          dialog_<%= status_post.id %>.close();
+  });
+</script> 

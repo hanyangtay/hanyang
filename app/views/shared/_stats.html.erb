@@ -27,7 +27,7 @@
     
     <br />
     <br />
-    <% unless current_user?(@user) %>
+    <% unless current_user.nil? || current_user?(@user) %>
                     <span id="follow-form-<%= @user.id %>">
                     <% if current_user.following?(@user) %>
                     

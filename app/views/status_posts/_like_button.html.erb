@@ -11,9 +11,29 @@
     </span>
   
 <% else %>
-
-    <%= button_tag class:  "post-button like not-logged-in-1" do %>
+    <%= button_tag class:  "post-button like not-logged-in-2", id: "post_button_like_not_#{status_post.id}" do %>
         <i class="material-icons">favorite</i>
     <% end %>
+    
+    <script type = "text/javascript">
+    
+    function showErrorMsg(error_msg) {
+      'use strict';
+      var snackbarContainer = document.querySelector('.flash-alert-danger');
+    
+        var data = {
+          message: error_msg,
+          timeout: 3000,
+        };
+        snackbarContainer.MaterialSnackbar.showSnackbar(data);
+    
+    }
+    
+    document.addEventListener("turbolinks:load", function() {
+      $("#post_button_like_not_<%= status_post.id %>").bind("click", function(){
+      showErrorMsg("Not logged in")});
+    });
+    
+    </script>
     
 <% end %>

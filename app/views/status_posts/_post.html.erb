@@ -1,17 +1,29 @@
 
 
-    
+    <% if @status_posts.any? %>
     <ul class="mdl-list" id="all-status-posts">
-      <% if @status_posts.any? %>
       
-      <% @status_posts.each do |status_post| %>
       
-        <%= render partial: 'status_posts/post_entry', object: status_post, as: 'status_post' %>
+        <% @status_posts.each do |status_post| %>
         
-      <% end %>
+          <%= render partial: 'status_posts/post_entry', object: status_post, as: 'status_post' %>
+          
+        <% end %>
+              
       
-      <% end %>
     </ul>
     
     <%= paginate @status_posts %>
+    
+    <% else %>
+      <div class = "none-message">
+      There are no posts to show. Go to 
+        <%= link_to explore_path, class: "mdl-navigation__link" do %>
+        <i class="material-icons">near_me</i> Explore 
+        <% end %> to find others.
+        
+      </div>
+
+      
+    <% end %>
      

@@ -16,13 +16,13 @@
         <%= link_to status_posts_path, class: "mdl-navigation__link" do %>
             <i class="material-icons" role="presentation">public</i> App Home
         <% end %>
-        
-        <%= link_to explore_path, class: "mdl-navigation__link" do %>
-            <i class="material-icons" role="presentation">near_me</i> Explore
-        <% end %>
                         
          <%= link_to current_user, class: "mdl-navigation__link" do %>
             <i class="material-icons" role="presentation">account_circle</i> Profile
+        <% end %>
+        
+        <%= link_to explore_path, class: "mdl-navigation__link" do %>
+            <i class="material-icons" role="presentation">near_me</i> Explore
         <% end %>
         
         <%= link_to edit_user_path(current_user), class: "mdl-navigation__link" do %>

@@ -49,4 +49,14 @@
     </ul>
     
     <%= paginate @users %>
+    
+<% else %>
+
+<div class = "none-message">
+      There are no users to show. Go to 
+        <%= link_to explore_path, class: "mdl-navigation__link" do %>
+        <i class="material-icons">near_me</i> Explore 
+        <% end %> to find others.
+        
+      </div>
 <% end %>

@@ -44,7 +44,7 @@ function isImage(filename) {
     return false;
 }
 
-window.onload = function() {
+document.addEventListener("turbolinks:load", function() {
 
     document.getElementById("uploadBtn").onchange = function () {
   var filename = this.files[0].name;
@@ -61,7 +61,7 @@ window.onload = function() {
   }
 
 };
-};
+});
 
 
 

@@ -34,6 +34,13 @@ p {
 
 /* Layout */
 
+.main-style {
+    max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.0em 1em 0em 1em;
+}
+
 .main-style-1 {
   max-width: 500px;
   margin-left: auto;
@@ -119,6 +126,13 @@ h2 {
   color: #9e9e9e;
 }
 
+
+.none-message{
+  color: #bdbdbd; 
+  text-align: center;
+  margin-top: 4em;
+  margin-bottom: 4em;
+}
 
 
 

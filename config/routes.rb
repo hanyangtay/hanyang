@@ -5,9 +5,7 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
   get '/projects', to: 'static_pages#projects'
-  get '/personal_website', to: 'static_pages#project1'
-  get '/mini_twitter', to: 'static_pages#project2'
-  get '/live_chat', to: 'static_pages#project3'
+
   get '/about', to: 'static_pages#about'
   
   
@@ -42,6 +40,11 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   
   resources :likes, only: [:create, :destroy]
+  
+  resources :messages, only: [:create, :index]
+  get '/live_chat', to: 'messages#index'
+  
+  mount ActionCable.server, at: '/cable'
 
 
 

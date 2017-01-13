@@ -25,6 +25,10 @@
             <i class="material-icons" role="presentation">near_me</i> Explore
         <% end %>
         
+        <%= link_to live_chat_path, class: "mdl-navigation__link" do %>
+            <i class="material-icons" role="presentation">textsms</i> Live Chat
+        <% end %>
+                        
         <%= link_to edit_user_path(current_user), class: "mdl-navigation__link" do %>
             <i class="material-icons" role="presentation">settings</i> Settings
         <% end %> 

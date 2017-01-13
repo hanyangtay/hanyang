@@ -1,0 +1,40 @@
+<% provide(:title, "Live Chat") %>
+<div class="main-style-2 static">
+
+    <div class="mdl-grid chat-wrapper">
+          
+          
+        
+        <div class="mdl-cell mdl-cell--9-col">
+              
+                <%= render 'messages/messages' %>
+
+              
+        </div>
+            
+        <div class="mdl-cell mdl-cell--3-col mdl-cell--hide-tablet mdl-cell--hide-phone chat-sidebar">
+                <%= render 'messages/online' %>
+        </div>
+        
+    </div>
+    
+    <div class="mdl-grid chat-footer">
+          
+        
+        <div class="mdl-cell mdl-cell--9-col">
+
+                <%= render 'messages/form' %>
+              
+        </div>
+            
+        <div class="mdl-cell mdl-cell--3-col mdl-cell--hide-tablet mdl-cell--hide-phone">
+        </div>
+        
+    </div>
+    
+
+  
+</div>
+
+    
+     

@@ -85,7 +85,7 @@ User.create!(name:  "Stoned Fish",
              tagline: "Guest account for lazy people who refuse to sign up. x.x",
              guest: true)
 
-20.times do |n|
+10.times do |n|
     number = rand(6) + 1
     name  = Faker::Name.name
     email = "test-#{n}@han.io"
@@ -95,15 +95,16 @@ User.create!(name:  "Stoned Fish",
                    password_confirmation: password,
                    activated: true,
                    activated_at: Time.zone.now,
-                   avatar: Rails.root.join("db/default/avatar_#{number}.png").open)
+                   avatar: Rails.root.join("db/default/avatar_#{number}.png").open,
+                   tagline: "I'm not real. Just here to take up space.")
     end
 
-users = User.order(created_at: :desc).take(23)
+users = User.order(created_at: :desc).take(13)
 users.each do |user|
-    (rand(30)+1).times { user.status_posts.create!(
+    (rand(20)+1).times { user.status_posts.create!(
                                 content: Faker::Lorem.sentence(rand(4) + 1),
                                 created_at: rand(10.years).seconds.ago) }
-    following = users.sample(rand(22))
+    following = users.sample(rand(12))
     following.each { |followed| user.follow(followed) if followed.id != user.id }
 end
 

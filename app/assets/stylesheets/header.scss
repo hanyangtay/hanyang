@@ -3,18 +3,19 @@
 .mdl-layout__header{
   .mdl-navigation__link {
     color: #616161;
-    font-weight: 400;
-    font-size: 14px;
+    font-weight: 300;
+    font-size: 16px;
     display: inline-block;
     height: 3.8em;
-    line-height: 4.2em;
+    line-height: 4em;
     background-color: transparent !important;
-    border-bottom: 2px solid transparent;
+    border-bottom: 3px solid transparent;
     transition-timing-function: ease-in-out;
     transition: border-bottom 200ms;
+    padding: 0 30px;
     
     &:hover{
-      border-bottom: 2px solid #8bc34a;
+      border-bottom: 3px solid #8bc34a;
     }
   }
 }
@@ -100,6 +101,8 @@
   .mdl-navigation__link{
     padding-left: 0.2em;
     line-height: 2.8em;
+    font-weight: 400;
+    font-size: 14px;
   }
   .material-icons {
       font-size: 24px;

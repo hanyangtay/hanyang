@@ -3,8 +3,6 @@ $layout-header-bg-color: #fff !default;
 @import "material";
 
 
-
-
   
 img {
   -webkit-border-radius: 1px; 
@@ -113,6 +111,8 @@ h1 {
   opacity: 1.00;
   color: #8bc34a;
 }
+
+
 h2 {
   font-family: 'Roboto', sans-serif;
   font-size: 2.6em;
@@ -241,18 +241,35 @@ h2 {
 
 
 /* Static Page styles */
-#profile {
-  padding-top: 4.0em;
+.static {
+  p {
+    font-size: 16px;
+    line-height: 26px;
+    font-family: 'Roboto';
+  }
+}
+
+
+#home-h1 {
+  font-size: 3.8em;
+}
+
+#home-tagline{
+  padding: 0px;
+  font-size: 18px;
+  text-align: center;
+  font-weight: 300;
+}
+
+
+#home-profile {
+  padding-top: 3.0em;
   max-width: 180px;
 }
 
 #about{
   color: #545454;
   text-align: justify;
-  p {
-    font-size: 16px;
-    line-height: 26px;
-  }
 }
 
 .about-left{
@@ -304,13 +321,6 @@ h2 {
   line-height: 26px;
 }
 
-#tagline{
-  padding: 0px;
-  font-size: 18px;
-  text-align: center;
-  font-weight: 300;
-}
-
 #coverpic {
     background-image: url(image_path('personal/cover.jpg'));
     background-size: contain;
@@ -323,6 +333,93 @@ h2 {
 }
 
 
+
+/* Project */
+
+#projects {
+  width: 60%;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.0em 1em 0em 2em;
+  
+  .projects-main-text, ul{
+    font-size: 18px;
+    line-height: 32px;
+    color: #757575;
+    font-weight: 300;
+  }
+  
+  .projects-first{
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 36px;
+    letter-spacing: 1px;
+    color: #757575
+  }
+  
+  h2{
+    a {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      opacity: 1.00;
+      color: #424242;
+      transition: opacity 200ms ease-in-out;
+      
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+  
+  h4 {
+    font-size: 28px;
+    font-weight: 500;
+    color: #616161;
+    
+  }
+  
+  .projects-github-icon {
+    float: right;
+    padding-right: 2em;
+    height: 24px;
+    width: 24px;
+  }
+  
+  .projects-block {
+    margin: 4em 0;
+    padding: 1em 0;
+  }
+  
+  .projects-up {
+    position: fixed;
+    bottom: 40px;
+    right: 100px;
+    color: #757575;
+    transition: opacity 200ms ease-in-out;
+    .material-icons{
+      font-size: 48px;
+    }  
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+}
+
+@media (max-width: 1200px) {
+  
+  #projects {
+    width: 85%;
+    padding-left: 4em;
+    padding-right: 4em;
+  }
+}
+
+.project-icon-wrapper {
+  height: 240px;
+  min-width: 240px;
+}
 
 
 
@@ -498,4 +595,107 @@ h2 {
     
   }
   
+}
+
+
+
+
+/* Chat */
+
+
+.chat-wrapper {
+    top: 60px;
+    left: 0;
+    right: 0;
+    max-height: 580px;
+    position: fixed;
+}
+
+
+.chat-footer {
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  position: fixed;
+}
+
+
+
+
+.chat-messages-container {
+  overflow: scroll;
+  padding: 1em 1em 0.5em 1em;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  height: 90%;
+}
+
+.chat-bubble{
+  background-color: #f1f0f0;
+  border-radius: 12px;
+  padding: 5px 10px;
+  word-break: break-all;
+  display: inline-block;
+  
+    &.chat-self-message{
+    background-color: #0084ff;
+    color: #ffffff;
+    }
+
+}
+
+.chat-self {
+  text-align: right;
+}
+
+.chat-self-profile {
+  margin-left: 1.8em;
+  margin-right: 0;
+}
+
+.chat-input {
+  border-radius: 12px;
+  background-color: #f5f5f5;
+  padding: 10px 10px;
+  outline: none;
+  font-size: 14px;
+  height: 30px;  
+  margin-top: 1em;
+  border: none;
+  resize: none;
+  display: inline-block;
+}
+
+.chat-sidebar{
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  padding: 1em 1em 0.5em 1em;
+  margin-bottom: 1em;
+  height: 90%;
+  overflow: scroll;
+}
+
+.chat-online-profile{
+    width: auto;
+    margin: 0;
+    padding-right: 0;
+    
+  }
+
+
+
+
+
+/* Responsive */
+@media (max-width: $grid-desktop-breakpoint - 1) {
+  
+  .main-style-2{
+    width: auto;
+    
+    h1{
+      padding-left: 0.5em;
+    }
+  }
+  
+
 }

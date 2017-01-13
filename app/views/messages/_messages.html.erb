@@ -1,0 +1,7 @@
+<div id="all-messages" class="chat-messages-container">
+    <% if @messages.any? %>
+       <% @messages.each do |message| %>
+          <%= render partial: "messages/message_entry", object: message, as: 'message' %>
+        <% end %>
+    <% end %>
+</div>

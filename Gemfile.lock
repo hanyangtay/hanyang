@@ -45,7 +45,6 @@ GEM
       execjs
     bcrypt (3.1.11)
     builder (3.2.2)
-    byebug (9.0.6)
     carrierwave (1.0.0)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
@@ -270,6 +269,7 @@ GEM
       nokogiri (~> 1.5)
       trollop (~> 2.1)
     rdoc (4.3.0)
+    redis (3.3.2)
     ruby-progressbar (1.8.1)
     sass (3.4.23)
     sass-rails (5.0.6)
@@ -317,7 +317,6 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt
-  byebug
   carrierwave
   coffee-rails
   faker
@@ -332,6 +331,7 @@ DEPENDENCIES
   puma
   rails
   rails-controller-testing
+  redis
   sass-rails
   sdoc
   spring

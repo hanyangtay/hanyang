@@ -1,73 +1,186 @@
 <% provide(:title, "Projects") %>
-<div class="main-style-2">
+<div class="static" id="projects">
 <h1>Projects</h1>
-<span class="short" style="line-height:1.4em;">
-Seeing is believing. <br />
-All my projects are live. Play with them by clicking this 
+
+
+<a href="#top" class="projects-up"> <i class="material-icons">keyboard_arrow_up</i> </a>
+
+<p class="projects-first" id="top">
+All my projects are live. Play with them by clicking this
 
 <button id="others_mock" class="main-header mdl-navigation__link 
   mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-  <i class="material-icons" role="presentation">more_vert</i>
-</button> at the top right.
+  <i class="material-icons" role="presentation" id="projects-menu-demo">more_vert</i>
+</button> at the top <span id="projects-menu-demo-2">right</span>.
 
 <script type="text/javascript">
   document.addEventListener("turbolinks:load", function() {
-  $("#others_mock").bind("click", function(){
-  $("#others").click();});
+    if($(window).width() <= 1024) {
+      $('#projects-menu-demo').html("menu");
+      $('#projects-menu-demo-2').html("left");
+    }
+    
+    $("#others_mock").bind("click", function(){
+      if($(window).width() > 1024){
+        $("#others").click();}
+      else {
+        $('.mdl-layout__drawer-button').click();}
+    });
+  
+    $(window).resize(function(){
+      if ($(window).width() >1024) {
+        $('#projects-menu-demo').html("more_vert");
+        $('#projects-menu-demo-2').html("right");
+      } 
+      
+      else {
+        $('#projects-menu-demo').html("menu");
+        $('#projects-menu-demo-2').html("left");
+      };
+    });
+  });
+    
+</script>
+</p>
+
+<br />
+
+
+<script>
+document.addEventListener("turbolinks:load", function() {
+  $('a').click(function(event) {
+    var href = $.attr(this, 'href');
+    var x_coord = $(href).offset().top - 50;
+    $('main').animate({
+        scrollTop: x_coord
+    }, 'medium', function () {
+        window.location.hash = href;
+    });
+    return false;
+    
+});
 });
 </script>
 
-</span>
-<br /> <br /><br />
-
-
-<div class="mdl-grid">
-  
-  <div class="mdl-cell mdl-cell--4-col">
-      <div class="ih-item circle effect1"><%= link_to root_url do %>
+  <div class="mdl-grid">
+    
+    <div class="mdl-cell mdl-cell--4-col project-icon-wrapper">
+        <div class="ih-item circle effect1"><a href="#projects-personal">
+          <div class="spinner"></div>
+          <div class="img"><i class="material-icons project_icon">face</i></div>
+          <div class="info">
+          <div class="info-back">
+            <h3>Personal Website</h3>
+              <p>This is kinda meta</p>
+          </div>
+        </div></a></div>
+    </div>
+    
+    <div class="mdl-cell mdl-cell--4-col project-icon-wrapper">
+      <div class="ih-item circle effect1"><a href="#projects-twitter">
         <div class="spinner"></div>
-        <div class="img"><i class="material-icons project_icon">face</i></div>
+        <div class="img"><i class="material-icons project_icon">format_quote</i></div>
         <div class="info">
         <div class="info-back">
-          <h3>Personal Website</h3>
-            <p>This is kinda meta.</p>
+          <h3>Mini-Twitter</h3>
+            <p>I copied it</p>
         </div>
-      </div><% end %></div>
-  </div>
+      </div></a></div>
+    </div>
+    
+    <div class="mdl-cell mdl-cell--4-col project-icon-wrapper">
+      <div class="ih-item circle effect1"><a href="#projects-live-chat">
+        <div class="spinner"></div>
+        <div class="img"><i class="material-icons project_icon">chat_bubble_outline</i></div>
+        <div class="info">
+        <div class="info-back">
+          <h3>Live chat</h3>
+            <p>Use two accounts and talk to yourself</p>
+        </div>
+      </div></a></div>
+    </div>
   
-  <div class="mdl-cell mdl-cell--4-col">
-    <div class="ih-item circle effect1"><%= link_to login_path do %>
-      <div class="spinner"></div>
-      <div class="img"><i class="material-icons project_icon">format_quote</i></div>
-      <div class="info">
-      <div class="info-back">
-        <h3>Mini-Twitter</h3>
-          <p>I copied it</p>
-      </div>
-    </div><% end %></div>
   </div>
+<span class="projects-main-text">
   
-  <div class="mdl-cell mdl-cell--4-col">
-    <div class="ih-item circle effect1"><%= link_to login_path do %>
-      <div class="spinner"></div>
-      <div class="img"><i class="material-icons project_icon">chat_bubble_outline</i></div>
-      <div class="info">
-      <div class="info-back">
-        <h3>Live chat</h3>
-          <p>Coming soon.</p>
-      </div>
-    </div><% end %></div>
-  </div>
+<div class="projects-block" id="projects-personal">  
+
+  <h2><%= link_to "Personal Website", root_url %>
+        <%= link_to "https://github.com/hanyangtay/hanyang", target:"_blank", 
+        rel: "noopener", class: "projects-github-icon" do %>
+     <%= image_tag "footer/github.png" %></h2> 
+  <% end %> 
+  <hr>
+  
+  <h4>Concept: </h4>
+  Show, not tell.
+  <br /> My work defines me, so why not let the work do the talking?
+  <h4>Features: </h4>
+  <ul>
+    <li> Responsive design </li>
+    <li> Live projects </li>
+  </ul>
+  <h4>Tools used:</h4>
+   HTML, CSS, Javascript, Material Design Lite
+
+</div>
+
+<div class="projects-block" id="projects-twitter">  
+
+  <h2><%= link_to "Mini-Twitter", login_path %>
+        <%= link_to "https://github.com/hanyangtay/hanyang", target:"_blank", 
+        rel: "noopener", class: "projects-github-icon" do %>
+     <%= image_tag "footer/github.png" %></h2> 
+  <% end %> 
+  <hr>
+  
+  <h4>Concept: </h4>
+  A Twitter app with my own UI concept. 
+  <br /> 
+  <h4>Features: </h4>
+  <ul>
+    <li> Status feed </li>
+    <li> Follow, like, retweet </li>
+    <li> Notifications </li>
+    <li> Picture uploads with live preview</li>
+    <li> E-mails for sign-ups and password resets </li>
+    <li> User authentication model </li>
+    <li> Server-side and client-side validations </li>
+  </ul>
+  <h4>Tools used:</h4>
+   Ruby on Rails, jQuery, Heroku Postgres, AJAX
+
+</div>
+
+<div class="projects-block" id="projects-live-chat">  
+
+  <h2><%= link_to "Live Chat", live_chat_path %>
+        <%= link_to "https://github.com/hanyangtay/hanyang", target:"_blank", 
+        rel: "noopener", class: "projects-github-icon" do %>
+     <%= image_tag "footer/github.png" %></h2> 
+  <% end %> 
+  <hr>
+  
+  <h4>Concept: </h4>
+  Simple live chat app
+  <h4>Features: </h4>
+  <ul>
+    <li> Live </li>
+    <li> See online users at chatroom </li>
+    <li> Emoji support  </li>
+    <li> Tag other users with @ </li>
+  </ul>
+  <h4>Tools used:</h4>
+   Ruby on Rails, Coffeescript, Redis
 
 </div>
 
 
+
+
+
   
-
-
-
-
-
-
+</span>
 </div>
+
 

@@ -7,8 +7,7 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
 
   received: (data) ->
     unless data.message.blank?
-    $("#all-messages").append("<%= escape_javascript(render(partial: 'messages/message_entry', object: data.message, as: 'message')) %>");
-      $('#messages').append data.message
+      $('#all-messages').append data.message
         
 $(document).on 'turbolinks:load', ->
   submit_message()

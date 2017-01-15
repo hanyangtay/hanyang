@@ -1,4 +1,39 @@
 <% provide(:title, 'Explore') %>
+<% if logged_in? %>
+
+<div class = "main-style-2">
+<h1>Explore</h1>
+
+<div class="mdl-grid">
+  
+  <div class="mdl-cell mdl-cell--3-col mdl-cell--hide-tablet mdl-cell--hide-phone sidebar">
+    <%= render 'shared/stats' %>
+  </div>
+  
+  
+  <div class="mdl-cell mdl-cell--9-col main">
+    
+    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+      
+      <div class="mdl-tabs__tab-bar">
+        <%= link_to "Wall", status_posts_path, class: "mdl-tabs__tab" %>
+        <%= link_to "What's up?", explore_path, class: "mdl-tabs__tab is-active" %>
+        <%= link_to "Find everyone", users_path, class: "mdl-tabs__tab" %>
+      </div>
+
+      <div class="mdl-tabs__panel is-active" id="main-panel">
+        <%= render 'status_posts/post' %>
+      </div>
+      
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<% else %>
+
 
 <div class="main-style-1">
 <h1>Explore</h1>
@@ -7,7 +42,6 @@
       <div class="mdl-tabs__tab-bar">
         <%= link_to "What's up?", explore_path, class: "mdl-tabs__tab is-active" %>
         <%= link_to "Find everyone", users_path, class: "mdl-tabs__tab" %>
-        <%= link_to "Site News", "#", class: "mdl-tabs__tab" %>
       </div>
 
       <div class="mdl-tabs__panel is-active" id="posts-panel">
@@ -17,3 +51,5 @@
       
     </div>
 </div>
+
+<% end %>

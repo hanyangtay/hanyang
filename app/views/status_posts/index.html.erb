@@ -15,9 +15,11 @@
       
       <div class="mdl-tabs__tab-bar">
         <%= link_to "Wall", status_posts_path, class: "mdl-tabs__tab is-active" %>
+        <%= link_to "What's up?", explore_path, class: "mdl-tabs__tab" %>
+        <%= link_to "Find everyone", users_path, class: "mdl-tabs__tab" %>
       </div>
 
-      <div class="mdl-tabs__panel is-active" id="wall-panel">
+      <div class="mdl-tabs__panel is-active" id="main-panel">
         <%= render 'status_posts/form' %>
         <%= render 'status_posts/post' %>
       </div>

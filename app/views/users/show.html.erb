@@ -17,7 +17,8 @@
         <%= link_to "Posts", @user, class: "mdl-tabs__tab is-active" %>
         <%= link_to "Following",following_user_path(@user), class: "mdl-tabs__tab" %>
         <%= link_to "Followers", followers_user_path(@user), class: "mdl-tabs__tab" %>
-        <%= link_to "Likes", liked_posts_user_path(@user), class: "mdl-tabs__tab" %>
+        <%= link_to "Likes", likes_user_path(@user), class: "mdl-tabs__tab" %>
+        
       </div>
 
       <div class="mdl-tabs__panel is-active" id="posts-panel">

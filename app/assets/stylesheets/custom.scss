@@ -405,6 +405,7 @@ h2 {
     }
   }
 
+
 }
 
 @media (max-width: 1200px) {
@@ -607,7 +608,7 @@ h2 {
     top: 60px;
     left: 0;
     right: 0;
-    max-height: 580px;
+    max-height: 650px;
     position: fixed;
 }
 
@@ -615,7 +616,7 @@ h2 {
 .chat-footer {
   left: 0;
   right: 0;
-  bottom: 20px;
+  bottom: 10px;
   position: fixed;
 }
 
@@ -623,15 +624,17 @@ h2 {
 
 
 .chat-messages-container {
-  overflow: scroll;
+  overflow-y: scroll;
   padding: 1em 1em 0.5em 1em;
   background-color: #f5f5f5;
   border-radius: 12px;
-  height: 90%;
+  max-height: calc(78vh - 50px);
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .chat-bubble{
-  background-color: #f1f0f0;
+  background-color: #e0e0e0;
   border-radius: 12px;
   padding: 5px 10px;
   word-break: break-all;
@@ -654,34 +657,38 @@ h2 {
 }
 
 .chat-input {
+  width: 96.7%;
   border-radius: 12px;
   background-color: #f5f5f5;
-  padding: 10px 10px;
+  padding: 1.7%;
   outline: none;
   font-size: 14px;
-  height: 30px;  
+  height: 20px;  
   margin-top: 1em;
   border: none;
   resize: none;
-  display: inline-block;
 }
 
 .chat-sidebar{
   background-color: #f5f5f5;
   border-radius: 12px;
-  padding: 1em 1em 0.5em 1em;
-  margin-bottom: 1em;
-  height: 90%;
-  overflow: scroll;
+  padding-top: 1em;
+  max-height: calc(83vh);
 }
 
-.chat-online-profile{
-    width: auto;
-    margin: 0;
-    padding-right: 0;
-    
+.user-link{
+  color: #383838;
+  &:hover{
+    opacity: 0.9;
+    background-color: #fafafa;
   }
-
+  img {
+    max-width: 48px;
+    &:hover{
+      opacity: 1;
+    }
+  }
+}
 
 
 

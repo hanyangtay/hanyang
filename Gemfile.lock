@@ -226,6 +226,8 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
+    momentjs-rails (2.15.1)
+      railties (>= 3.1)
     multi_json (1.12.1)
     nio4r (1.2.1)
     nokogiri (1.7.0)
@@ -327,6 +329,7 @@ DEPENDENCIES
   material_design_lite-sass
   mini_magick
   minitest-reporters
+  momentjs-rails
   pg
   puma
   rails

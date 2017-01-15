@@ -1,20 +1,26 @@
 App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
   connected: ->
-    # Called when the subscription is ready for use on the server
+    scroll_bottom()
+    submit_message()
 
   disconnected: ->
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    unless data.message.blank?
-      $('#all-messages').append data.message
-        
-$(document).on 'turbolinks:load', ->
-  submit_message()
+    if $('.message-send').attr('id') is "#{data.user_id}"
+      $('.chat-messages-container').append data.message
+    else
+      $('.chat-messages-container').append data.message2
+    scroll_bottom()
 
 submit_message = () ->
   $('#message_content').on 'keydown', (event) ->
     if event.keyCode is 13
-      $('input').click()
+      $('.message-send').click()
       event.target.value = ""
       event.preventDefault()
+      
+scroll_bottom = () ->
+  $('.chat-messages-container').scrollTop($('.chat-messages-container')[0].scrollHeight)
+  
+  

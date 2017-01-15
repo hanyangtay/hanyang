@@ -26,7 +26,7 @@ class User < ApplicationRecord
     before_save :downcase_email
     before_create :create_activation_digest
     
-    validates :name, presence: true, length: { maximum: 50}
+    validates :name, presence: true, length: { maximum: 50}, uniqueness: true
     
     
     validates :email, presence: true, length: { maximum: 255 }, 
@@ -119,6 +119,14 @@ class User < ApplicationRecord
         
     def like?(other_post)
         liked_posts.include?(other_post)
+    end
+    
+    def is_online
+        update_attribute(:online, true)
+    end
+    
+    def is_offline
+        update_attribute(:online, false)
     end
     
     

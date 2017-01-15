@@ -7,19 +7,20 @@
     <% @users.each do |user| %>
       
       <li id = "user-<%= user.id %>">
-
-        <div class="mdl-grid">
+        <%= link_to user do %>
+        <div class="mdl-grid user-link">
           <div class="mdl-cell mdl-cell--4-col chat-online-profile">
-            <%= link_to user do %>
-              <%= image_tag user.avatar.url, class: "profile_pic_small"%>
-            <% end %>
+            
+              <%= image_tag user.avatar.url %>
+            
           </div>
             
           <div class="mdl-cell mdl-cell--8-col" style="padding-top: 13px;">
-            <%= link_to user.name, user, class: "mdl-navigation__link" %>
+            <%= user.name %>
           </div>
             
         </div>
+        <% end %>
     </li>
     
     <% end %>

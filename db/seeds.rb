@@ -117,12 +117,12 @@ users.each do |user|
             like_posts = statusposts.sample(rand(statusposts.count))
             like_posts.each { |post| user.like(post)}
             
-            puts 'phase 1'
-            quote_posts = statusposts.sample(rand(5)) unless statusposts.count < 5
+
+            quote_posts = statusposts.sample(rand(5))
             quote_posts.each do |post| 
                 user.status_posts.create!(content: post.content, repost_id: post.id,
                                         created_at: rand(post.created_at..Time.now))
-                puts 'post.content'
+
             end
         end
     end

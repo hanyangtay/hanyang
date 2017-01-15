@@ -1,0 +1,21 @@
+<li>
+    <div class="mdl-grid chat-self-wrapper">
+        
+        <div class="mdl-cell mdl-cell--10-col chat-self">
+            <%= link_to message.user.name, message.user, class: "mdl-navigation__link" %> <br />
+            <div class="chat-bubble chat-self-message">
+                <%= message.content %>
+            </div>
+        </div>
+            
+        <div class="mdl-cell mdl-cell--2-col small_side_profile chat-self-profile mdl-cell--hide-tablet mdl-cell--hide-phone">
+            <%= link_to message.user do %>
+                <%= image_tag message.user.avatar.url, class: "profile_pic_small", id: "message-#{message.id}" %>
+            <% end %>
+            <div class="mdl-tooltip mdl-tooltip--right timestring" data-mdl-for="message-<%= message.id %>">
+                <%= message.created_at.to_datetime.iso8601 %>
+            </div>
+        </div>
+                    
+    </div>
+</li>    

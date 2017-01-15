@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170112020327) do
+ActiveRecord::Schema.define(version: 20170114184133) do
 
   create_table "likes", force: :cascade do |t|
     t.integer  "liked_post_id"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20170112020327) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.string   "content"
+    t.text     "content"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -68,7 +68,9 @@ ActiveRecord::Schema.define(version: 20170112020327) do
     t.string   "avatar"
     t.string   "tagline",           default: "I don't have a tagline because I'm too lazy to update it."
     t.boolean  "guest",             default: false
+    t.boolean  "online",            default: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["online"], name: "index_users_on_online"
   end
 
 end

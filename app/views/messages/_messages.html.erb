@@ -1,7 +1,21 @@
-<div id="all-messages" class="chat-messages-container">
+<ul class="mdl-list chat-messages-container">
     <% if @messages.any? %>
        <% @messages.each do |message| %>
-          <%= render partial: "messages/message_entry", object: message, as: 'message' %>
+            
+            <% if current_user?(message.user) %>
+                <%= render partial:"messages/message_self", object: message, as: 'message' %>
+            <% else %>
+                <%= render partial:"messages/message_other", object: message, as: 'message' %>
+            <% end %>
         <% end %>
     <% end %>
-</div>
+</ul>
+
+<script type="text/javascript">
+$(document).on('turbolinks:load', function(){
+    $('.timestring').each(function() {
+      this.textContent = moment(this.textContent).format('lll');
+    });
+    
+});
+</script>

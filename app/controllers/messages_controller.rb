@@ -4,16 +4,18 @@ class MessagesController < ApplicationController
 
   def index
       @skip_footer = true
-      @users = User.all.take(4)
+      @users = User.where(online: true)
   end
 
   def create
     message = current_user.messages.build(message_params)
     if message.save
+      message_full = render_message(message)
+      message_rendered=message_full.split("!@#$%^")
       ActionCable.server.broadcast 'chatroom_channel',
-                                    message: render_message(message)
-
-      head :ok
+                                    user_id: message.user.id,
+                                    message: message_rendered[0],
+                                    message2: message_rendered[1]
     end
   end
 
@@ -29,7 +31,7 @@ class MessagesController < ApplicationController
     end
     
     def render_message(message)
-      render(partial: 'messages/message_entry', object: message, as: 'message')
+        render(partial: 'messages/message_full', object: message, as: 'message')
     end
 
     

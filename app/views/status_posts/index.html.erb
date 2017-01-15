@@ -15,22 +15,11 @@
       
       <div class="mdl-tabs__tab-bar">
         <%= link_to "Wall", status_posts_path, class: "mdl-tabs__tab is-active" %>
-        <a href="#news-panel" class="mdl-tabs__tab">Site News</a>
-        <a href="#notifications-panel" class="mdl-tabs__tab">Notifications</a>
       </div>
 
       <div class="mdl-tabs__panel is-active" id="wall-panel">
         <%= render 'status_posts/form' %>
         <%= render 'status_posts/post' %>
-      </div>
-      
-      <div class="mdl-tabs__panel" id="news-panel">
-        Coming soon.
-      </div>
-      <div class="mdl-tabs__panel" id="notifications-panel">
-        <ul>
-          Coming soon.
-        </ul>
       </div>
       
     </div>

@@ -13,6 +13,7 @@ class MessagesController < ApplicationController
       message_full = render_message(message)
       message_rendered=message_full.split("!@#$%^")
       ActionCable.server.broadcast 'chatroom_channel',
+                                    type: 'message',
                                     user_id: message.user.id,
                                     message: message_rendered[0],
                                     message2: message_rendered[1]

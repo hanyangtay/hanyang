@@ -123,6 +123,10 @@ class User < ApplicationRecord
     
     def is_online
         update_attribute(:online, true)
+        ActionCable.server.broadcast 'chatroom_channel',
+                                    type: 'online',
+                                    user_id: self.id,
+                                    message: 'a'
     end
     
     def is_offline

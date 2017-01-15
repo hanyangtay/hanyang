@@ -2,26 +2,12 @@
 
 <% if @users.any? %>
 
-  <ul class= "mdl-list" style="margin-top: 0; padding-top: 0;">
+  <ul class= "mdl-list chat-online-all" style="margin-top: 0; padding-top: 0;">
       
     <% @users.each do |user| %>
+    
       
-      <li id = "user-<%= user.id %>">
-        <%= link_to user do %>
-        <div class="mdl-grid user-link">
-          <div class="mdl-cell mdl-cell--4-col chat-online-profile">
-            
-              <%= image_tag user.avatar.url %>
-            
-          </div>
-            
-          <div class="mdl-cell mdl-cell--8-col" style="padding-top: 13px;">
-            <%= user.name %>
-          </div>
-            
-        </div>
-        <% end %>
-    </li>
+      <%= render partial: "messages/online_entry", object: user, as: 'user' %>
     
     <% end %>
 <% end %>        

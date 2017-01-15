@@ -1,0 +1,16 @@
+<li id = "user-<%= user.id %>">
+    <%= link_to user do %>
+        <div class="mdl-grid user-link">
+          <div class="mdl-cell mdl-cell--4-col chat-online-profile">
+            
+              <%= image_tag user.avatar.url %>
+            
+          </div>
+            
+          <div class="mdl-cell mdl-cell--8-col" style="padding-top: 13px;">
+            <%= user.name %>
+          </div>
+            
+        </div>
+    <% end %>
+</li>

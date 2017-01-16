@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   end
   
   def index
-    @users = User.where(activated: true).page(params[:page]).per(10)
+    @users = User.where(activated: true).page(params[:page]).order(created_at: :desc).per(10)
   end
   
   def following

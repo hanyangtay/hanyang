@@ -1,11 +1,12 @@
 App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
   connected: ->
-    $(".chat-wrapper").load()
-    $(".messages-load").removeClass('messages-load')
-    $(".chat-online-all").load()
-    $('.mdl-spinner').removeClass('is-active')
-    scroll_bottom()
-    submit_message()
+    $(document).on 'turbolinks:load', ->
+      $(".chat-wrapper").load()
+      $(".messages-load").removeClass('messages-load')
+      $(".chat-online-all").load()
+      $('.mdl-spinner').removeClass('is-active')
+      scroll_bottom()
+      submit_message()
 
   disconnected: ->
     # Called when the subscription has been terminated by the server

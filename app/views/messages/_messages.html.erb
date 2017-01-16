@@ -1,6 +1,9 @@
 <ul class="mdl-list chat-messages-container">
+    <div id="spinner-load">
     <div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
-    <div class="messages-load">
+    Refresh this page if you're waiting for more than 5 seconds.
+    </div>
+    <div id="messages-load" class="display-none">
     <% if @messages.any? %>
        <% @messages.each do |message| %>
             

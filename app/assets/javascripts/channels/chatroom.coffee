@@ -1,9 +1,8 @@
 App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
   connected: ->
-    $(".chat-wrapper").load()
-    $(".messages-load").removeClass('messages-load')
+    $("#messages-load").removeClass('display-none')
     $(".chat-online-all").load()
-    $('.mdl-spinner').removeClass('is-active')
+    $('#spinner-load').addClass('display-none')
     scroll_bottom()
     submit_message()
 
@@ -34,5 +33,3 @@ submit_message = () ->
       
 scroll_bottom = () ->
   $('.chat-messages-container').scrollTop($('.chat-messages-container')[0].scrollHeight)
-  
-  

@@ -19,4 +19,10 @@ class UserMailer < ApplicationMailer
     @user = user
     mail to: user.email, subject: "HanyangTay password reset"
   end
+  
+  def notify_admin(user)
+    @user = user
+    mail to: "htay@wesleyan.edu", subject: "HanyangTay New User"
+  end
+  
 end

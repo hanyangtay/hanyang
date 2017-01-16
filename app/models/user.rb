@@ -69,6 +69,7 @@ class User < ApplicationRecord
     end
     
     def activate
+        UserMailer.notify_admin(self).deliver_now
         update_columns(activated: true, activated_at: Time.zone.now)
     end
     
@@ -123,10 +124,6 @@ class User < ApplicationRecord
     
     def is_online
         update_attribute(:online, true)
-        ActionCable.server.broadcast 'chatroom_channel',
-                                    type: 'online',
-                                    user_id: self.id,
-                                    message: 'a'
     end
     
     def is_offline

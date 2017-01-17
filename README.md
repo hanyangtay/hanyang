@@ -16,7 +16,7 @@ Seeing is believing, visit me here (https://hanyangtay.herokuapp.com).
 Built with Google's Material Design Lite framework, featuring a responsive design.
 All I have to say is, front-end development is tedious. 
 
-Tools used: HTML, CSS, MDL framework, Adobe Photoshop
+Tools used: HTML, CSS, Javascript, MDL framework, Adobe Photoshop
 
 ### Mini-Twitter
 ---
@@ -38,7 +38,7 @@ Always assume a malicious user.
 Server-side validations are a must, and always trump client-side validations.
    
 #### Tweet model
-  * Upload photos
+  * Upload  with live preview
   * Like, retweet, delete
     
 #### Social Media
@@ -47,9 +47,14 @@ Server-side validations are a must, and always trump client-side validations.
     
 Learned the MVC model by repeatedly coding different relationships between users and their posts. 
 
-Tools used: Ruby on Rails, Heroku Postgres, Jquery
+Tools used: Ruby on Rails, Heroku Postgres, Jquery, AJAX
 
 ### Live Chat
 ---
 
-Coming soon
+Simple live chat app, using ActionCable to implement Web Sockets.
+(https://hanyangtay.herokuapp.com/live_chat)
+
+It's easy to get an app 90% up and running, but getting the last 10% right requires a fixation on elegance and details.
+
+Tools used: Ruby on Rails, Coffeescript, Redis

@@ -129,7 +129,9 @@ document.addEventListener("turbolinks:load", function() {
    HTML, CSS, Javascript, Material Design Lite, Ruby on Rails, jQuery, Heroku Postgres, AJAX
    <br />
   <h4>Screenshot: </h4>
+  <%= link_to login_path do %>
   <%= image_tag "showcase/showcase_twitter.jpg", class: "projects-images" %>
+  <% end %>
 
 </div>
 
@@ -154,14 +156,16 @@ document.addEventListener("turbolinks:load", function() {
    Ruby on Rails, Coffeescript, Redis
   <br />
   <h4>Screenshot: </h4>
+  <%= link_to live_chat_path do %>
   <%= image_tag "showcase/showcase_live_chat.jpg", class: "projects-images" %>
+  <% end %>
 </div>
 
 <div class="projects-block" id="projects-nn">  
-  <h2><%= link_to "Neural Networks", "https://github.com/hanyangtay", target:"_blank" %>
-        <%= link_to "https://github.com/hanyangtay/hanyang", target:"_blank", 
+  <h2><%= link_to "Neural Networks", "https://github.com/hanyangtay/neural-networks", target:"_blank" %>
+        <%= link_to "https://github.com/hanyangtay/neural-networks", target:"_blank", 
         rel: "noopener", class: "projects-github-icon" do %>
-     <%= image_tag "footer/github.png", class: "projects-images" %></h2> 
+     <%= image_tag "footer/github.png" %></h2> 
   <% end %> 
   <hr>
   
@@ -179,8 +183,9 @@ document.addEventListener("turbolinks:load", function() {
    Python, Cython
   <br />
   <h4>Screenshot: </h4>
+  <%= link_to "https://github.com/hanyangtay/neural-networks", target:"_blank", rel: "noopener" do %>
   <%= image_tag "showcase/showcase_neural_networks.jpg", class: "projects-images" %>
-  
+  <% end %>
 </div>
   
 </span>

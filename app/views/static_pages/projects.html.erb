@@ -65,18 +65,6 @@ document.addEventListener("turbolinks:load", function() {
   <div class="mdl-grid">
     
     <div class="mdl-cell mdl-cell--4-col project-icon-wrapper">
-        <div class="ih-item circle effect1"><a href="#projects-personal">
-          <div class="spinner"></div>
-          <div class="img"><i class="material-icons project_icon">face</i></div>
-          <div class="info">
-          <div class="info-back">
-            <h3>Personal Website</h3>
-              <p>This is kinda meta</p>
-          </div>
-        </div></a></div>
-    </div>
-    
-    <div class="mdl-cell mdl-cell--4-col project-icon-wrapper">
       <div class="ih-item circle effect1"><a href="#projects-twitter">
         <div class="spinner"></div>
         <div class="img"><i class="material-icons project_icon">format_quote</i></div>
@@ -99,31 +87,21 @@ document.addEventListener("turbolinks:load", function() {
         </div>
       </div></a></div>
     </div>
+    
+    <div class="mdl-cell mdl-cell--4-col project-icon-wrapper">
+      <div class="ih-item circle effect1"><a href="#projects-nn">
+        <div class="spinner"></div>
+        <div class="img"><i class="material-icons project_icon">share</i></div>
+        <div class="info">
+        <div class="info-back">
+          <h3>Neural Networks</h3>
+            <p>Trained for image classification task</p>
+        </div>
+      </div></a></div>
+    </div>
   
   </div>
 <span class="projects-main-text">
-  
-<div class="projects-block" id="projects-personal">  
-
-  <h2><%= link_to "Personal Website", root_url %>
-        <%= link_to "https://github.com/hanyangtay/hanyang", target:"_blank", 
-        rel: "noopener", class: "projects-github-icon" do %>
-     <%= image_tag "footer/github.png" %></h2> 
-  <% end %> 
-  <hr>
-  
-  <h4>Concept: </h4>
-  Show, not tell.
-  <br /> My work defines me, so why not let the work do the talking?
-  <h4>Features: </h4>
-  <ul>
-    <li> Responsive design </li>
-    <li> Live projects </li>
-  </ul>
-  <h4>Tools used:</h4>
-   HTML, CSS, Javascript, Material Design Lite
-
-</div>
 
 <div class="projects-block" id="projects-twitter">  
 
@@ -139,6 +117,7 @@ document.addEventListener("turbolinks:load", function() {
   <br /> 
   <h4>Features: </h4>
   <ul>
+    <li> Responsive design </li>
     <li> Status feed </li>
     <li> Follow, like, retweet </li>
     <li> Picture uploads with live preview</li>
@@ -147,7 +126,10 @@ document.addEventListener("turbolinks:load", function() {
     <li> Server-side and client-side validations </li>
   </ul>
   <h4>Tools used:</h4>
-   Ruby on Rails, jQuery, Heroku Postgres, AJAX
+   HTML, CSS, Javascript, Material Design Lite, Ruby on Rails, jQuery, Heroku Postgres, AJAX
+   <br />
+  <h4>Screenshot: </h4>
+  <%= image_tag "showcase/showcase_twitter.jpg", class: "projects-images" %>
 
 </div>
 
@@ -170,13 +152,36 @@ document.addEventListener("turbolinks:load", function() {
   </ul>
   <h4>Tools used:</h4>
    Ruby on Rails, Coffeescript, Redis
-
+  <br />
+  <h4>Screenshot: </h4>
+  <%= image_tag "showcase/showcase_live_chat.jpg", class: "projects-images" %>
 </div>
 
-
-
-
-
+<div class="projects-block" id="projects-nn">  
+  <h2><%= link_to "Neural Networks", "https://github.com/hanyangtay", target:"_blank" %>
+        <%= link_to "https://github.com/hanyangtay/hanyang", target:"_blank", 
+        rel: "noopener", class: "projects-github-icon" do %>
+     <%= image_tag "footer/github.png", class: "projects-images" %></h2> 
+  <% end %> 
+  <hr>
+  
+  <h4>Concept: </h4>
+  Computer vision: trained several ConvNets to classifiy images from the CIFAR-10 dataset.
+<h4>Features: </h4>
+  <ul>
+    <li> Best performance over 1000 test images: 84.6%</li>
+    <li> Activation units: Affine Transformation, ReLU, Convolutional layers </li>
+    <li> Learning algorithms: Stochastic Gradient Descent, Momentum, RMSProp , Adam, Momentum  </li>
+    <li> Optimisations: Pooling layers, Batch Normalisation, Dropout, L2 Regularisation</li>
+    <li> Other classifiers: Support Vector Machine, k-Nearest Neighbours, Softmax, Fully Connected Nets </li>
+  </ul>
+  <h4>Tools used:</h4>
+   Python, Cython
+  <br />
+  <h4>Screenshot: </h4>
+  <%= image_tag "showcase/showcase_neural_networks.jpg", class: "projects-images" %>
+  
+</div>
   
 </span>
 </div>

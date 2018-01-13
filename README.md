@@ -1,16 +1,7 @@
 # hanyangtay
 
-Everything about me, Han Yang Tay, with my live code projects
-
-![alt text](https://github.com/hanyangtay/hanyang/raw/master/app/assets/images/personal/hy.png "Han Yang")
-
-
-Seeing is believing, visit me here (https://twitter-hanyang.herokuapp.com).
-
----
-
 A Twitter app with my own UI design concept. Built with Ruby on Rails.
-It's live! You can play with it here (https://hanyangtay.herokuapp.com/login).
+It's live! You can play with it here (https://twitter-hanyang.herokuapp.com).
 
 #### Dynamic web-page
 

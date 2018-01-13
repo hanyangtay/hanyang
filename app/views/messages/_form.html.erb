@@ -1,6 +1,0 @@
-<div>
-  <%= form_for(@message, remote: true) do |f| %>
-    <%= f.text_area :content, placeholder: "Type a message..", class:"chat-input" %>
-    <%= f.submit "Send", id: "#{current_user.id}", class: "hideField message-send" %>
-  <% end %>
-</div>

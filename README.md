@@ -5,20 +5,8 @@ Everything about me, Han Yang Tay, with my live code projects
 ![alt text](https://github.com/hanyangtay/hanyang/raw/master/app/assets/images/personal/hy.png "Han Yang")
 
 
-Seeing is believing, visit me here (https://hanyangtay.herokuapp.com).
+Seeing is believing, visit me here (https://twitter-hanyang.herokuapp.com).
 
-
-## Projects
-
-### Personal Portfolio
----
-
-Built with Google's Material Design Lite framework, featuring a responsive design.
-All I have to say is, front-end development is tedious. 
-
-Tools used: HTML, CSS, Javascript, MDL framework, Adobe Photoshop
-
-### Mini-Twitter
 ---
 
 A Twitter app with my own UI design concept. Built with Ruby on Rails.
@@ -47,14 +35,4 @@ Server-side validations are a must, and always trump client-side validations.
     
 Learned the MVC model by repeatedly coding different relationships between users and their posts. 
 
-Tools used: Ruby on Rails, Heroku Postgres, Jquery, AJAX
-
-### Live Chat
----
-
-Simple live chat app, using ActionCable to implement Web Sockets.
-(https://hanyangtay.herokuapp.com/live_chat)
-
-It's easy to get an app 90% up and running, but getting the last 10% right requires a fixation on elegance and details.
-
-Tools used: Ruby on Rails, Coffeescript, Redis
+Tools used: Ruby on Rails, PostgreSQL

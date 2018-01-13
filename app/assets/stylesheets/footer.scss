@@ -12,12 +12,18 @@ footer {
     opacity: 0.54;
     transition-timing-function: ease-in-out;
     transition: opacity 200ms;
+    color: #000;
 
     &:hover{
         opacity: 1.0;
-      }
     }
   }
+}
+
+.hanyanglive {
+  opacity: 1.0;
+}
+
 #footer_1 {
   height: 1.4em;
   width: 1.4em;

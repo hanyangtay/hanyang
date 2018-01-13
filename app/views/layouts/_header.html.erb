@@ -2,7 +2,9 @@
     <div class="mdl-layout__header-row">
         <!-- Title -->    
         <title><%= yield(:title) %></title>
-        <%= link_to "hanyang.tay", root_path, class: "mdl-layout-title" %>
+        <%= link_to root_path, class: "mdl-layout-title" do %>
+            <span style="color: #757575">twitter.</span>live
+        <% end %>
         
         <!-- Add spacer, to align navigation to the right in desktop -->
         <div class="mdl-layout-spacer"></div>
@@ -10,73 +12,21 @@
         <!-- Navigation -->
         <div class="main-navigation-container">
             <nav class="main-header mdl-navigation">
-                <%= link_to "Home", root_path, class: "main-header mdl-navigation__link" %>
-                <%= link_to "Projects", projects_path, class: "main-header mdl-navigation__link" %>
-                <%= link_to "About", about_path, class: "main-header mdl-navigation__link" %>
-                
-                <button id="others" class="main-header mdl-navigation__link 
-                        mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
-                        style="padding: 0 24px;">
-                  <i class="material-icons" role="presentation">more_vert</i>
-                </button>
-                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu 
-                            mdl-js-ripple-effect" for="others">
-                    
-                    <% if logged_in? %>
-                        <li class="mdl-menu__item">
-                            <%= link_to status_posts_path, class: "mdl-navigation__link" do %>
-                            <i class="material-icons" role="presentation">public</i> App Home
-                        <% end %>
-                        <li class="mdl-menu__item">
-                        <%= link_to current_user, class: "mdl-navigation__link" do %>
-                            <i class="material-icons" 
-                            role="presentation">account_circle</i> Profile
-                        <% end %>
-                        </li>
-                        <li class="mdl-menu__item">
-                        <%= link_to live_chat_path, class: "mdl-navigation__link" do %>
-                            <i class="material-icons" 
-                            role="presentation">textsms</i> Live Chat
-                        <% end %>
-                        </li>
-                        <li class="mdl-menu__item">
-                        <%= link_to edit_user_path(current_user), class: "mdl-navigation__link" do %>
-                            <i class="material-icons" 
-                            role="presentation">settings</i> Settings
-                        <% end %>
-                        </li>
-                        <li class="mdl-menu__item">
-                        <%= link_to logout_path, method: :delete, class: "mdl-navigation__link" do %>
-                            <i class="material-icons" 
-                            role="presentation">power_settings_new</i> Log out
-                        <% end %>
-                        </li>
+                <% if logged_in? %>
+                    <%= link_to "Wall Feed", status_posts_path, class: "main-header mdl-navigation__link" %>
+                    <%= link_to "Profile", current_user, class: "main-header mdl-navigation__link" %>
+                    <%= link_to "Settings", edit_user_path(current_user), class: "main-header mdl-navigation__link" %>
+                    <%= link_to "Log out", logout_path, method: :delete, class: "main-header mdl-navigation__link" %>
+                            
                     <% else %>
-                        <li class="mdl-menu__item">
-                        <%= link_to login_path, class: "mdl-navigation__link" do %>
-                            <i class="material-icons" 
-                            role="presentation">account_circle</i> Log in
-                        <% end %>
-                        </li>
-                        <li class="mdl-menu__item">
-                        <%= link_to signup_path, class: "mdl-navigation__link" do %>
-                            <i class="material-icons" 
-                            role="presentation">person_add</i> Sign Up
-                        <% end %>
-                        </li>
-                        <li class="mdl-menu__item">
-                        <%= link_to explore_path, class: "mdl-navigation__link" do %>
-                            <i class="material-icons" 
-                            role="presentation">near_me</i> Explore
-                        <% end %>
-                        </li>
+                    <%= link_to "Log in", login_path, class: "main-header mdl-navigation__link" %>
+                    <%= link_to "Sign up", signup_path, class: "main-header mdl-navigation__link" %>
+                    <%= link_to "Explore", explore_path, class: "main-header mdl-navigation__link" %>
+
                     <% end %>
-                </ul>
             </nav>
         </div>
     </div>
     
         
 </header>
-
-<%= render "layouts/drawer" %>

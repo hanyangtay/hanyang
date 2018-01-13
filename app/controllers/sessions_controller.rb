@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
   
   def new
+    if logged_in?
+      redirect_to status_posts_path
+    end
   end
   
   def create

@@ -3,6 +3,8 @@
 A Twitter app with my own UI design concept. Built with Ruby on Rails.
 It's live! You can play with it here (https://twitter-hanyang.herokuapp.com).
 
+![alt text](https://raw.githubusercontent.com/hanyangtay/hanyanglive/master/src/assets/images/showcase/twitter.jpg "Twitter")
+
 #### Dynamic web-page
 
 Users can see their stats update immediately upon any of the actions. Only relevant sections of the web page are reloaded, saving user bandwidth.

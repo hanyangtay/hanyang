@@ -15,18 +15,17 @@ Users can see their stats update immediately upon any of the actions. Only relev
   * Guest account access
   * Secure password hashing (storage of password digests in database)
   * Pseudo-randomly generated avatar images for new users (can be changed)
+  * Server-side validations
   
-Always assume a malicious user.
-Server-side validations are a must, and always trump client-side validations.
-   
+
 ### Tweet model
   * Upload  with live preview
   * Like, retweet, delete
     
+
 ### Social Media
   * Follow, unfollow users
   * Dynamically created status feed
     
-Learned the MVC model by repeatedly coding different relationships between users and their posts. 
 
 Tools used: Ruby on Rails, PostgreSQL

@@ -1,10 +1,10 @@
 # Twitter
 
 A Twitter app with my own UI design concept. Built with Ruby on Rails.
-It's live! You can play with it here (https://twitter-hanyang.herokuapp.com).
+It's live! You can play with it [here](https://twitter-hanyang.herokuapp.com).
 
 ### Screenshot
-![alt text](https://raw.githubusercontent.com/hanyangtay/twitter/master/twitter.jpg "Twitter")
+![Twitter](https://raw.githubusercontent.com/hanyangtay/twitter/master/twitter.jpg "Twitter")
 
 ### Dynamic loading
 
